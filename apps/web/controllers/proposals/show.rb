@@ -6,7 +6,7 @@ module Web::Controllers::Proposals
 
     expose :proposal
 
-    def call(_params)
+    def call(params)
       case result = operation.call(id: params[:id])
       when Success
         @proposal = result.value!
