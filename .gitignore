@@ -1,2 +1,6 @@
 /public/assets*
 /tmp
+/coverage
+/node_modules
+/doc
+/.yardoc
