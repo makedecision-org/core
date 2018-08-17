@@ -28,8 +28,11 @@ group :test, :development do
 end
 
 group :test do
-  gem 'rspec'
   gem 'capybara'
+  gem 'rspec'
+  gem 'rspec-hanami'
+  gem 'simplecov', require: false
+  gem 'simplecov-json', require: false
 end
 
 group :production do
