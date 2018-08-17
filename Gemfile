@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'hanami',       '1.3.0.beta1'
-gem 'hanami-model', '~> 1.3.beta'
+gem 'hanami',       '1.2.0'
+gem 'hanami-model', '~> 1.2'
 
 gem 'pg'
+
+# dependency managment
+gem 'dry-system', '~> 0.9.0'
+gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
 
 gem 'slim'
 
