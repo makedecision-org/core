@@ -80,6 +80,7 @@ GEM
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.11.0)
     erubi (1.7.1)
+    ffi (1.9.25)
     hanami (1.2.0)
       bundler
       concurrent-ruby (~> 1.0)
@@ -152,6 +153,9 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rake (12.3.1)
+    rb-fsevent (0.10.3)
+    rb-inotify (0.9.10)
+      ffi (>= 0.5.0, < 2)
     rom (3.3.3)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.3)
@@ -191,6 +195,11 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    sass (3.5.7)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sequel (4.49.0)
     simplecov (0.16.1)
       docile (~> 1.1)
@@ -230,6 +239,7 @@ DEPENDENCIES
   rake
   rspec
   rspec-hanami
+  sass
   simplecov
   simplecov-json
   slim

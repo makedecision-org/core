@@ -8,13 +8,13 @@ p
   - proposal.variants.each do |variant|
     .variant
       h3 = variant.name
-      
+
       .traits
         .positive
           ul
             - variant.positive_traits.each do |trait|
               li = trait[:value]
-             
+
         .negative
           ul
             - variant.negative_traits.each do |trait|

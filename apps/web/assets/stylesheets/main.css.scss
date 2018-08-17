@@ -1,0 +1,14 @@
+.traits {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+
+  .positive {
+    color: green;
+  }
+
+  .negative {
+    color: red;
+  }
+}

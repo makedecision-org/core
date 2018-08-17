@@ -19,6 +19,7 @@ gem 'dry-monads', '~> 1.0.0'
 
 # templates
 gem 'slim'
+gem 'sass'
 gem 'hanami-bootstrap'
 
 group :development do
