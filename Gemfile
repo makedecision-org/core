@@ -17,7 +17,9 @@ gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
 # business logic section
 gem 'dry-monads', '~> 1.0.0'
 
+# templates
 gem 'slim'
+gem 'hanami-bootstrap'
 
 group :development do
   # Code reloading

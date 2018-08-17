@@ -4,5 +4,7 @@ html
     title
       | Web
     = favicon
+    = stylesheet 'bootstrap', 'main'
   body
     = yield
+    = javascript 'bootstrap', 'main'
