@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rake'
+
+# http layer
 gem 'hanami',       '1.2.0'
+gem 'puma', '~> 3.11.0'
 
 # persistance layer
 gem 'hanami-model', '~> 1.2'
@@ -19,12 +22,14 @@ gem 'slim'
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
-  gem 'shotgun', platforms: :ruby
+  # gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
 end
 
 group :test, :development do
   gem 'dotenv', '~> 2.4'
+
+  gem 'database_cleaner'
 end
 
 group :test do
