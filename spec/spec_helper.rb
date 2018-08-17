@@ -51,6 +51,8 @@ require 'rspec/hanami'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include RSpec::Hanami::Matchers, type: :action
+  config.include Dry::Monads::Result::Mixin
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
