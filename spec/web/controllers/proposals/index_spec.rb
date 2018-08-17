@@ -19,10 +19,5 @@ RSpec.describe Web::Controllers::Proposals::Index, type: :action do
     let(:action) { described_class.new }
 
     it { expect(subject).to be_success 200 }
-
-    it 'returns list of proposals' do
-      subject
-      expect(action.proposals).to eq([])
-    end
   end
 end
