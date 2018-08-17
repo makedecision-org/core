@@ -11,21 +11,20 @@ p
 
       .traits
         .positive
-          ul
-            - variant.positive_traits.each do |trait|
-              li = trait[:value]
-
           form action="#"
             input type="text" name="positive_trait" placeholder="New positive trait"
             input type="submit" value="Add"
 
-
-        .negative
           ul
-            - variant.negative_traits.each do |trait|
+            - variant.positive_traits.each do |trait|
               li = trait[:value]
 
+        .negative
           form action="#"
             input type="text" name="negative_trait" placeholder="New negative trait"
             input type="submit" value="Add"
+
+          ul
+            - variant.negative_traits.each do |trait|
+              li = trait[:value]
 
