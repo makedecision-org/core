@@ -2,4 +2,4 @@ h1 Proposals
 
 - proposals.each do |proposal|
   h2
-    = link_to proposal.title, routes.proposal_path(proposal.id)
+    = link_to "#{proposal.title} (#{proposal.status})", routes.proposal_path(proposal.id)
