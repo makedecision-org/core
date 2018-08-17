@@ -2,13 +2,17 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'hanami',       '1.2.0'
-gem 'hanami-model', '~> 1.2'
 
+# persistance layer
+gem 'hanami-model', '~> 1.2'
 gem 'pg'
 
 # dependency managment
 gem 'dry-system', '~> 0.9.0'
 gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
+
+# business logic section
+gem 'dry-monads', '~> 1.0.0'
 
 gem 'slim'
 

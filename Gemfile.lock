@@ -43,6 +43,10 @@ GEM
       dry-container (~> 0.2, >= 0.2.6)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
+    dry-monads (1.0.1)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.4, >= 0.4.4)
+      dry-equalizer
     dry-struct (0.3.1)
       dry-configurable (~> 0.1)
       dry-core (~> 0.3)
@@ -197,6 +201,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   dotenv (~> 2.4)
+  dry-monads (~> 1.0.0)
   dry-system (~> 0.9.0)
   dry-system-hanami!
   hanami (= 1.2.0)
