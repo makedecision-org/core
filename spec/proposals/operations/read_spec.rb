@@ -2,7 +2,7 @@ RSpec.describe Proposals::Operations::Read, type: :list do
   include Dry::Monads::Result::Mixin
 
   let(:operation) { described_class.new(proposal_repository: proposal_repository) }
-  let(:proposal_repository) { double(:proposal_repository, find: proposal) }
+  let(:proposal_repository) { double(:proposal_repository, find_with_variants: proposal) }
 
   subject { operation.call(id: 1) }
 
