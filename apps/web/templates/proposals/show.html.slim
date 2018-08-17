@@ -28,3 +28,9 @@ p
             - variant.negative_traits.each do |trait|
               li = trait[:value]
 
+- if proposal.open?
+  .actions
+    form action="#" method="POST"
+      input type="text" name="conclusions" placeholder="Conclusions"
+      input type="submit" value="Deny" name="denied"
+      input type="submit" value="Approve" name="approved"
