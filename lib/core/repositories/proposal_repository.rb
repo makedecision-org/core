@@ -4,6 +4,6 @@ class ProposalRepository < Hanami::Repository
   end
 
   def find_with_variants(id)
-    aggregate(:variants).by_pk(id).map_to(Proposal).one
+    aggregate(:variants).where(id: id).map_to(Proposal).one
   end
 end
