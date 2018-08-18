@@ -9,6 +9,7 @@ module Proposals
         payload = payload.slice(:status, :conclusions)
 
         if ALLOWED_STATUSES.include?(payload[:status].to_s)
+          # TODO: what will happend if id is not exist?
           proposal_repository.update(id, payload)
         end
 
