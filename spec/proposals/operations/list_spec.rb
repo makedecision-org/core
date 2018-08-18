@@ -1,4 +1,4 @@
-RSpec.describe Proposals::Operations::List, type: :list do
+RSpec.describe Proposals::Operations::List, type: :operation do
   include Dry::Monads::Result::Mixin
 
   let(:operation) { described_class.new(proposal_repository: proposal_repository) }
