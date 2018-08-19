@@ -47,12 +47,14 @@
           input.form-check-input type="checkbox" value="" id="defaultCheck1"
           label.form-check-label for="defaultCheck1" Sinatra
 
+        br
         input type="submit" value="Vote" name="vote" class="btn btn-success"
 
     - if proposal.open?
       .proposal__actions
-        form.form-inline action="#" method="PATCH"
-          input type="text" name="conclusions" placeholder="Conclusions" class="form-control"
+        form action="#" method="PATCH"
+          textarea name="conclusions" placeholder="Conclusions" class="form-control"
+          br
           input type="submit" value="Deny" name="denied" class="btn btn-danger"
           input type="submit" value="Approve" name="approved" class="btn btn-success"
 
