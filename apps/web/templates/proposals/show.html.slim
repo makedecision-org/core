@@ -1,43 +1,60 @@
-h1
-  = proposal.title
-p
-  = proposal.body
+.container
+  .proposal
+    .proposal__title
+      h1 #{link_to 'Proposals', routes.proposals_path} > #{proposal.title}
 
+    p = proposal.body
 
-.variants
-  - if proposal.open?
-    .add_variant
-      h3 Add new variant
-      form action="#" method="PATCH"
-        input type="text" name="name" placeholder="New Variant"
-        input type="submit" value="Add"
+    .variants
+      - if proposal.open?
+        .add_variant
+          form.form-inline action="#" method="PATCH"
+            input type="text" name="name" placeholder="New Variant" class="form-control"
+            input type="submit" value="Add" class="btn btn-primary"
 
-  - proposal.variants.each do |variant|
-    .variant
-      h3 = variant.name
+      - proposal.variants.each do |variant|
+        .variant
+          h3.variant__title = variant.name
 
-      .traits
-        .positive
-          form action="#"
-            input type="text" name="positive_trait" placeholder="New positive trait"
-            input type="submit" value="Add"
+          .traits
+            .positive
+              form.form-inline action="#"
+                input type="text" name="positive_trait" placeholder="Positive trait" class="form-control"
+                input type="submit" value="Add" class="btn btn-primary"
 
-          ul
-            - variant.positive_traits.each do |trait|
-              li = trait[:value]
+              ul
+                - variant.positive_traits.each do |trait|
+                  li = trait[:value]
 
-        .negative
-          form action="#"
-            input type="text" name="negative_trait" placeholder="New negative trait"
-            input type="submit" value="Add"
+            .negative
+              form.form-inline action="#"
+                input type="text" name="negative_trait" placeholder="Negative trait" class="form-control"
+                input type="submit" value="Add" class="btn btn-primary"
 
-          ul
-            - variant.negative_traits.each do |trait|
-              li = trait[:value]
+              ul
+                - variant.negative_traits.each do |trait|
+                  li = trait[:value]
 
-- if proposal.open?
-  .actions
-    form action="#" method="PATCH"
-      input type="text" name="conclusions" placeholder="Conclusions"
-      input type="submit" value="Deny" name="denied"
-      input type="submit" value="Approve" name="approved"
+    .decisions
+      h2 What framework we should choose?
+
+      form action="#" method="POST"
+        .form-check
+          input.form-check-input type="checkbox" value="" id="hanamiCheck"
+          label.form-check-label for="hanamiCheck" Hanami
+
+        .form-check
+          input.form-check-input type="checkbox" value="" id="defaultCheck1"
+          label.form-check-label for="defaultCheck1" Sinatra
+
+        input type="submit" value="Vote" name="vote" class="btn btn-success"
+
+    - if proposal.open?
+      .proposal__actions
+        form.form-inline action="#" method="PATCH"
+          input type="text" name="conclusions" placeholder="Conclusions" class="form-control"
+          input type="submit" value="Deny" name="denied" class="btn btn-danger"
+          input type="submit" value="Approve" name="approved" class="btn btn-success"
+
+    .thread
+      h2 Thread

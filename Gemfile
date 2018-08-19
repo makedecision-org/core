@@ -25,7 +25,7 @@ gem 'hanami-bootstrap'
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
-  # gem 'shotgun', platforms: :ruby
+  gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
 end
 

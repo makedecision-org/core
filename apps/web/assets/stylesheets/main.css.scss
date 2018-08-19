@@ -1,3 +1,46 @@
+.proposals {
+  width: 90%;
+  height: 100%;
+  margin: 3% auto 0;
+  box-shadow: 0 0 3px rgba(33,33,33,.2);
+  background-color: #fff;
+  padding: 3% 7%;
+
+  .proposals__item {
+    margin: 2% 0;
+  }
+}
+
+.proposal {
+  width: 90%;
+  height: 100%;
+  margin: 3% auto 0;
+  box-shadow: 0 0 3px rgba(33,33,33,.2);
+  background-color: #fff;
+  padding: 3% 7%;
+
+  .proposal__title {
+    margin: 0 0 5%;
+  }
+
+  .proposal__actions {
+    margin: 5% 0;
+  }
+}
+
+.variants {
+  margin: 5% 0;
+
+  .add_variant {
+    margin: 5% 0;
+  }
+
+  .variant {
+    .variant__title {
+    }
+  }
+}
+
 .traits {
   display: flex;
   flex-direction: row;
@@ -11,4 +54,18 @@
   .negative {
     color: red;
   }
+}
+
+.decisions {
+  margin: 5% 0;
+}
+
+.discussion {
+  margin: 5% 0;
+}
+
+
+// core
+body {
+  background-color: rgba(239, 239, 239, 0.35);
 }

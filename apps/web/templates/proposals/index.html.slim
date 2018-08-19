@@ -1,8 +1,11 @@
-h1 Proposals
+.container
+  h1 Proposals
 
-- proposals.each do |proposal|
-  h2
-    = link_to "#{proposal.title} (#{proposal.status})", routes.proposal_path(proposal.id)
-  - unless proposal.open?
-    .conclusions
-      | Conclusions: #{proposal.conclusions}
+  .proposals
+    - proposals.each do |proposal|
+      .proposals__item
+        h2
+          = link_to "#{proposal.title} (#{proposal.status})", routes.proposal_path(proposal.id)
+        - unless proposal.open?
+          .conclusions
+            | Conclusions: #{proposal.conclusions}
