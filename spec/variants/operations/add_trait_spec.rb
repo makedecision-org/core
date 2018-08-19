@@ -1,9 +1,59 @@
 RSpec.describe Variants::Operations::AddTrait, type: :operation do
   include Dry::Monads::Result::Mixin
 
-  let(:operation) { described_class.new }
+  let(:operation) { described_class.new(variant_repository: variant_repository) }
+  let(:variant_repository) do
+    double(:variant_repository, add_positive_trait: variant, add_negative_trait: variant)
+  end
 
-  subject { operation.call(variant_id: 1, value: 2, type: 3) }
+  let(:variant) { Variant.new(proposal_id: 123) }
 
-  it { expect(subject).to eq Success(1) }
+  subject { operation.call(variant_id: 1, value: 'new trait', type: type) }
+
+  context 'when trait type is positive' do
+    let(:type) { :positive_trait }
+
+    it 'updates variant traits' do
+      expect(variant_repository).to receive(:add_positive_trait).with(1, 'new trait')
+      expect(subject).to eq Success(variant)
+    end
+
+    context 'and type is string type' do
+      let(:type) { 'positive_trait' }
+
+      it 'updates variant traits' do
+        expect(variant_repository).to receive(:add_positive_trait).with(1, 'new trait')
+        expect(subject).to eq Success(variant)
+      end
+    end
+  end
+
+  context 'when trait type is negative' do
+    let(:type) { :negative_trait }
+
+    it 'updates variant traits' do
+      expect(variant_repository).to receive(:add_negative_trait).with(1, 'new trait')
+      expect(subject).to eq Success(variant)
+    end
+
+    context 'and type is string type' do
+      let(:type) { 'negative_trait' }
+
+      it 'updates variant traits' do
+        expect(variant_repository).to receive(:add_negative_trait).with(1, 'new trait')
+        expect(subject).to eq Success(variant)
+      end
+    end
+  end
+
+  context 'when trait type invalid' do
+    let(:type) { :invalid }
+
+    it { expect { subject }.to raise_error }
+  end
+
+  xcontext 'with a real dependency' do
+    it 'updates traits for the variant' do
+    end
+  end
 end
