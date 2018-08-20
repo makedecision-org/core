@@ -1,7 +1,6 @@
 module Web::Controllers::Variants
   class Create
     include Web::Action
-    include Dry::Monads::Result::Mixin
     include Import[operation: 'variants.operations.create']
 
     def call(params)

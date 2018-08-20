@@ -8,10 +8,10 @@ RSpec.describe Variants::Operations::AddTrait, type: :operation do
 
   let(:variant) { Variant.new(proposal_id: 123) }
 
-  subject { operation.call(variant_id: 1, value: 'new trait', type: type) }
+  subject { operation.call(variant_id: 1, value: 'new trait', trait_type: type) }
 
   context 'when trait type is positive' do
-    let(:type) { :positive_trait }
+    let(:type) { :positive }
 
     it 'updates variant traits' do
       expect(variant_repository).to receive(:add_positive_trait).with(1, 'new trait')
@@ -19,7 +19,7 @@ RSpec.describe Variants::Operations::AddTrait, type: :operation do
     end
 
     context 'and type is string type' do
-      let(:type) { 'positive_trait' }
+      let(:type) { 'positive' }
 
       it 'updates variant traits' do
         expect(variant_repository).to receive(:add_positive_trait).with(1, 'new trait')
@@ -29,7 +29,7 @@ RSpec.describe Variants::Operations::AddTrait, type: :operation do
   end
 
   context 'when trait type is negative' do
-    let(:type) { :negative_trait }
+    let(:type) { :negative }
 
     it 'updates variant traits' do
       expect(variant_repository).to receive(:add_negative_trait).with(1, 'new trait')
@@ -37,7 +37,7 @@ RSpec.describe Variants::Operations::AddTrait, type: :operation do
     end
 
     context 'and type is string type' do
-      let(:type) { 'negative_trait' }
+      let(:type) { 'negative' }
 
       it 'updates variant traits' do
         expect(variant_repository).to receive(:add_negative_trait).with(1, 'new trait')
