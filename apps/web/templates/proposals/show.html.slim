@@ -22,9 +22,7 @@
                   li = trait[:value]
 
             .negative
-              form.form-inline action="#"
-                input type="text" name="negative_trait" placeholder="Negative trait" class="form-control"
-                input type="submit" value="Add" class="btn btn-primary"
+              = add_negative_trait_form(variant)
 
               ul
                 - variant.negative_traits.each do |trait|
