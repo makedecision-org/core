@@ -15,9 +15,7 @@
 
           .traits
             .positive
-              form.form-inline action="#"
-                input type="text" name="positive_trait" placeholder="Positive trait" class="form-control"
-                input type="submit" value="Add" class="btn btn-primary"
+              = add_positive_trait_form(variant)
 
               ul
                 - variant.positive_traits.each do |trait|
