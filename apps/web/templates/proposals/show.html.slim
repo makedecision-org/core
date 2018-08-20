@@ -7,10 +7,7 @@
 
     .variants
       - if proposal.open?
-        .add_variant
-          form.form-inline action="#" method="PATCH"
-            input type="text" name="name" placeholder="New Variant" class="form-control"
-            input type="submit" value="Add" class="btn btn-primary"
+        .add_variant = add_variant_form
 
       - proposal.variants.each do |variant|
         .variant
