@@ -2,6 +2,7 @@
   h1 Proposals
 
   .proposals
+    = link_to 'Create new proposal', '#', class: 'btn btn-primary'
     - proposals.each do |proposal|
       .proposals__item
         h2
