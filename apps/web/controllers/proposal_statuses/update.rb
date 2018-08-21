@@ -4,11 +4,8 @@ module Web::Controllers::ProposalStatuses
     include Dry::Monads::Result::Mixin
     include Import[operation: 'proposals.operations.update_status']
 
-    expose :proposal
-
     def call(params)
-
-      case result = operation.call(id: params[:id], **params)
+      case result = operation.call(**params)
       when Success
         redirect_to routes.proposal_path(result.value!)
       when Failure

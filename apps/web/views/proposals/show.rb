@@ -27,5 +27,14 @@ module Web::Views::Proposals
         submit 'Add', class: 'btn btn-primary'
       end
     end
+
+    def update_proposal_status_form
+      form_for :trait, routes.proposal_status_path(proposal.id), { method: :patch } do
+        textarea(name: "conclusions", placeholder: "Conclusions", class: "form-control")
+        br
+        button(type: "submit", value: "denied", name: "status", class: "btn btn-danger") { 'Deny' }
+        button(type: "submit", value: "approved", name: "status", class: "btn btn-success") { 'Approve' }
+      end
+    end
   end
 end

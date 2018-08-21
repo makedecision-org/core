@@ -45,7 +45,9 @@
 
     - if proposal.open?
       .proposal__actions
-        form action="#" method="PATCH"
+        = update_proposal_status_form
+
+        /form action="#" method="PATCH"
           textarea name="conclusions" placeholder="Conclusions" class="form-control"
           br
           input type="submit" value="Deny" name="denied" class="btn btn-danger"
