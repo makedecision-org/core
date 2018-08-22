@@ -1,6 +1,6 @@
 root to: 'home#index'
 
-resources :proposals, only: %i[index new show]
+resources :proposals, only: %i[index new create show]
 patch '/proposal_statuses/:id', to: 'proposal_statuses#update'
 
 resources :variants, only: %i[create]
