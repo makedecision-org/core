@@ -1,6 +1,6 @@
 RSpec.describe Web::Controllers::Proposals::Create, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { {} }
+  let(:params) { { proposal: {} } }
 
   subject { action.call(params) }
 
@@ -14,5 +14,13 @@ RSpec.describe Web::Controllers::Proposals::Create, type: :action do
     let(:operation) { -> (*_) { Failure([]) } }
 
     it { expect(subject).to be_success 200 }
+  end
+
+  context 'whith a real dependency' do
+    let(:action) { described_class.new }
+    let(:params) { { proposal: { title: 'test', body: 'test' } } }
+
+    it { expect(subject).to be_success 200 }
+    it { expect{ subject }.to change { ProposalRepository.new.all.count }.by(1) }
   end
 end

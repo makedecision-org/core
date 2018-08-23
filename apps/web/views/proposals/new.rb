@@ -3,7 +3,7 @@ module Web::Views::Proposals
     include Web::View
 
     def form
-      form_for :proposal, '#', { method: :post } do
+      form_for :proposal, routes.proposals_path, { method: :post } do
         div(class: 'form-group') do
           label :title
           text_field :title, class: 'form-control', placeholder: 'Title'

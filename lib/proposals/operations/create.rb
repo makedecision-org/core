@@ -1,6 +1,6 @@
 module Proposals
   module Operations
-    class List < Libs::Operation
+    class Create < Libs::Operation
       include Import[proposal_repository: 'repositories.proposal']
 
       def call(title:, body:)
