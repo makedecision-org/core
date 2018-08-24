@@ -47,11 +47,20 @@
       .proposal__actions
         = update_proposal_status_form
 
-        /form action="#" method="PATCH"
-          textarea name="conclusions" placeholder="Conclusions" class="form-control"
-          br
-          input type="submit" value="Deny" name="denied" class="btn btn-danger"
-          input type="submit" value="Approve" name="approved" class="btn btn-success"
-
     .thread
       h2 Thread
+
+      form action="#" method="PATCH"
+        textarea name="body" placeholder="Body" class="form-control"
+        br
+        input type="submit" value="Add" name="Submit" class="btn btn-success"
+
+      hr
+
+      .comments
+        - proposal.comments.each do |comment|
+          .comment
+            p = comment.created_at
+
+            div = comment.body
+

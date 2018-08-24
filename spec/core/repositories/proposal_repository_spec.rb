@@ -11,11 +11,13 @@ RSpec.describe ProposalRepository, type: :repository do
 
       it { expect(subject).to be_a(Proposal) }
       it { expect(subject.variants).to all(be_a(Variant)) }
+      it { expect(subject.comments).to eq([]) }
     end
 
     context 'when proposal does not have variants' do
       it { expect(subject).to be_a(Proposal) }
       it { expect(subject.variants).to eq([]) }
+      it { expect(subject.comments).to eq([]) }
     end
 
     context 'when proposal not exist in db' do
