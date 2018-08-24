@@ -1,4 +1,5 @@
 require_relative './variant'
+require_relative './comment'
 
 class Proposal < Hanami::Entity
   OPEN = 'open'
@@ -18,6 +19,7 @@ class Proposal < Hanami::Entity
     attribute :status, ::Types::ProposalStatuses
 
     attribute :variants, Types::Collection(Variant)
+    attribute :comments, Types::Collection(Comment)
 
     attribute :created_at, Types::Time
     attribute :updated_at, Types::Time

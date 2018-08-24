@@ -1,6 +1,7 @@
 class ProposalRepository < Hanami::Repository
   associations do
     has_many :variants
+    has_many :comments
   end
 
   def find_with_variants(id)
