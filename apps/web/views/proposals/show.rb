@@ -37,11 +37,12 @@ module Web::Views::Proposals
       end
     end
 
-    def add_comment
-      form_for :comment, routes.comments_path(proposal.id), { method: :post } do
-        textarea(name: "body", placeholder: "Body", class: "form-control")
+    def add_comment_form
+      form_for :comment, routes.comments_path, { method: :post } do
+        input(name: 'proposal_id', type: 'hidden', value: proposal.id)
+        textarea(name: "body", placeholder: "New comment", class: "form-control")
         br
-        button(type: "submit", value: "Add", name: "Submit", class: "btn btn-danger") { 'Deny' }
+        submit 'Add', class: 'btn btn-primary'
       end
     end
   end
