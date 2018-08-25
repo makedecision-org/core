@@ -36,5 +36,13 @@ module Web::Views::Proposals
         button(type: "submit", value: "approved", name: "status", class: "btn btn-success") { 'Approve' }
       end
     end
+
+    def add_comment
+      form_for :comment, routes.comments_path(proposal.id), { method: :post } do
+        textarea(name: "body", placeholder: "Body", class: "form-control")
+        br
+        button(type: "submit", value: "Add", name: "Submit", class: "btn btn-danger") { 'Deny' }
+      end
+    end
   end
 end
