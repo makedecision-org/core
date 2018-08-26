@@ -22,6 +22,11 @@ gem 'slim'
 gem 'sass'
 gem 'hanami-bootstrap'
 
+# markdown
+gem 'kramdown', '1.13.1'
+gem 'rouge', '1.11.1'
+gem 'rinku'
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
