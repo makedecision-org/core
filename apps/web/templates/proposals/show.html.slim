@@ -19,14 +19,20 @@
 
               ul
                 - variant.positive_traits.each do |trait|
-                  li = trait[:value]
+                  li
+                    form action="#" method="POST" class="form-inline"
+                      = trait[:value]
+                      input type="submit" value="Delete" name="vote" class="btn btn-danger"
 
             .negative
               = add_negative_trait_form(variant)
 
               ul
                 - variant.negative_traits.each do |trait|
-                  li = trait[:value]
+                  li
+                    form action="#" method="POST" class="form-inline"
+                      = trait[:value]
+                      input type="submit" value="Delete" name="vote" class="btn btn-danger"
 
     .decisions
       h2 What framework we should choose?
