@@ -3,15 +3,15 @@ module Web::Views::Proposals
     include Web::View
 
     def proposal_body
-      raw(proposal.body)
+      raw_body(proposal.body)
     end
 
     def comment_body(comment)
-      raw(comment.body)
+      raw_body(comment.body)
     end
 
     def variant_body(variant)
-      raw(variant.body)
+      raw_body(variant.body)
     end
 
     def add_variant_form
@@ -57,6 +57,12 @@ module Web::Views::Proposals
         br
         submit 'Add', class: 'btn btn-primary'
       end
+    end
+
+  private
+
+    def raw_body(body)
+      raw(body || '')
     end
   end
 end
