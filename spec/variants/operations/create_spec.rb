@@ -6,10 +6,12 @@ RSpec.describe Variants::Operations::Create, type: :operation do
 
   context 'when data valid' do
     context 'and body is exist' do
-      subject { operation.call(proposal_id: 1, name: 'new variant here', body: 'variant body') }
+      subject { operation.call(proposal_id: 1, name: 'new variant here', body: '**variant** body') }
 
       it 'creates a new variant for the proposal' do
-        expect(variant_repository).to receive(:create).with(name: 'new variant here', proposal_id: 1, body: 'variant body')
+        expect(variant_repository).to receive(:create).with(
+          name: 'new variant here', proposal_id: 1, raw_body: '**variant** body', body: "<p><strong>variant</strong> body</p>\n"
+        )
         expect(subject).to be_success
       end
     end
@@ -18,7 +20,7 @@ RSpec.describe Variants::Operations::Create, type: :operation do
       subject { operation.call(proposal_id: 1, name: 'new variant here') }
 
       it 'creates a new variant for the proposal' do
-        expect(variant_repository).to receive(:create).with(name: 'new variant here', proposal_id: 1, body: '')
+        expect(variant_repository).to receive(:create).with(name: 'new variant here', proposal_id: 1, body: '', raw_body: '')
         expect(subject).to be_success
       end
     end
