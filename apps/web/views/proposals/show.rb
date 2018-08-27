@@ -6,6 +6,10 @@ module Web::Views::Proposals
       raw(proposal.body)
     end
 
+    def comment_body(comment)
+      raw(comment.body)
+    end
+
     def add_variant_form
       form_for :variant, routes.variants_path, { method: :post } do
         input(name: 'proposal_id', type: 'hidden', value: proposal.id)

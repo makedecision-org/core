@@ -4,12 +4,15 @@ RSpec.describe Proposals::Operations::CreateComment, type: :operation do
   let(:operation) { described_class.new(comment_repository: comment_repository) }
   let(:comment_repository) { double(:comment_repository, create: Comment.new) }
 
-  subject { operation.call(proposal_id: 1, body: 'new comment here') }
+  subject { operation.call(proposal_id: 1, body: 'new **comment** here') }
 
   context 'when data valid' do
     it 'creates a new comment for the proposal' do
-      expect(comment_repository).to receive(:create).with(body: 'new comment here', proposal_id: 1)
-      expect(subject).to be_success
+      expect(comment_repository).to receive(:create).with(
+        body: "<p>new <strong>comment</strong> here</p>\n", raw_body: 'new **comment** here', proposal_id: 1
+      ).and_return(Comment.new)
+
+      expect(subject).to eq Success(Comment.new)
     end
   end
 
