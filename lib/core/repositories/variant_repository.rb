@@ -12,4 +12,14 @@ class VariantRepository < Hanami::Repository
     variant = root.by_pk(id).one!
     update(id, negative_traits: variant.negative_traits + [{ value: trait }])
   end
+
+  def delete_positive_trait(id, trait)
+    variant = root.by_pk(id).one!
+    update(id, positive_traits: variant.positive_traits - [{ 'value' => trait }])
+  end
+
+  def delete_negative_trait(id, trait)
+    variant = root.by_pk(id).one!
+    update(id, negative_traits: variant.negative_traits - [{ 'value' => trait }])
+  end
 end
