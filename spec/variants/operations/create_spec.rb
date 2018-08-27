@@ -4,12 +4,23 @@ RSpec.describe Variants::Operations::Create, type: :operation do
   let(:operation) { described_class.new(variant_repository: variant_repository) }
   let(:variant_repository) { double(:variant_repository, create: Variant.new) }
 
-  subject { operation.call(proposal_id: 1, name: 'new variant here') }
-
   context 'when data valid' do
-    it 'creates a new variant for the proposal' do
-      expect(variant_repository).to receive(:create).with(name: 'new variant here', proposal_id: 1)
-      expect(subject).to be_success
+    context 'and body is exist' do
+      subject { operation.call(proposal_id: 1, name: 'new variant here', body: 'variant body') }
+
+      it 'creates a new variant for the proposal' do
+        expect(variant_repository).to receive(:create).with(name: 'new variant here', proposal_id: 1, body: 'variant body')
+        expect(subject).to be_success
+      end
+    end
+
+    context 'and body is empty' do
+      subject { operation.call(proposal_id: 1, name: 'new variant here') }
+
+      it 'creates a new variant for the proposal' do
+        expect(variant_repository).to receive(:create).with(name: 'new variant here', proposal_id: 1, body: '')
+        expect(subject).to be_success
+      end
     end
   end
 

@@ -5,6 +5,9 @@ class Variant < Hanami::Entity
 
     attribute :name, Types::String
 
+    attribute :body, Types::String
+    attribute :raw_body, Types::String
+
     attribute :positive_traits, Types::Collection(Types::Coercible::Hash)
     attribute :negative_traits, Types::Collection(Types::Coercible::Hash)
 

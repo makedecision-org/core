@@ -13,6 +13,9 @@
         .variant
           h3.variant__title = variant.name
 
+          .variant__body
+            = variant.body
+
           .traits
             .positive
               = add_positive_trait_form(variant)
