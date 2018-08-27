@@ -1,4 +1,4 @@
-RSpec.describe Core::MarkdownParser do
+RSpec.describe Libs::MarkdownParser do
   let(:markdown){ described_class.new }
   subject { markdown.call(text) }
 

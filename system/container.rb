@@ -15,6 +15,7 @@ class Container < Dry::System::Container
 
   #  Core
   register_folder! 'core/repositories'
+  register_folder! 'core/libs'
 
   # proposals
   register_folder! 'proposals/operations'

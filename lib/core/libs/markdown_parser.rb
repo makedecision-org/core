@@ -2,7 +2,7 @@ require 'kramdown'
 require 'rouge'
 require 'rinku'
 
-module Core
+module Libs
   class MarkdownParser
     CHECKBOX_REGEXP_CHECKED = %r(\K\[(x|X)\]\s?(.*)<)
     CHECKBOX_REGEXP_UNCHECKED = %r(\K\[ \]\s?(.*)<)
