@@ -2,6 +2,10 @@ module Web::Views::Proposals
   class Show
     include Web::View
 
+    def proposal_body
+      raw(proposal.body)
+    end
+
     def add_variant_form
       form_for :variant, routes.variants_path, { method: :post } do
         input(name: 'proposal_id', type: 'hidden', value: proposal.id)

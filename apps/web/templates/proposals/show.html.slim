@@ -3,7 +3,7 @@
     .proposal__title
       h1 #{link_to 'Proposals', routes.proposals_path} > #{proposal.title}
 
-    p = proposal.body
+    p = proposal_body
 
     .variants
       - if proposal.open?
