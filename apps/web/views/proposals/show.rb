@@ -41,6 +41,30 @@ module Web::Views::Proposals
       end
     end
 
+    def delete_positive_trait_form(proposal, variant, trait_text)
+      return trait_text unless proposal.open?
+
+      form_for :trait, routes.trait_path, { method: :delete, class: 'form-inline' } do
+        input(name: 'variant_id', type: 'hidden', value: variant.id)
+        input(name: 'trait_type', type: 'hidden', value: 'positive')
+        input(name: 'value', type: 'hidden', value: trait_text)
+        text(trait_text)
+        submit 'Delete', class: 'btn btn-danger'
+      end
+    end
+
+    def delete_negative_trait_form(proposal, variant, trait_text)
+      return trait_text unless proposal.open?
+
+      form_for :trait, routes.trait_path, { method: :delete, class: 'form-inline' } do
+        input(name: 'variant_id', type: 'hidden', value: variant.id)
+        input(name: 'trait_type', type: 'hidden', value: 'negative')
+        input(name: 'value', type: 'hidden', value: trait_text)
+        text(trait_text)
+        submit 'Delete', class: 'btn btn-danger'
+      end
+    end
+
     def update_proposal_status_form
       form_for :trait, routes.proposal_status_path(proposal.id), { method: :patch } do
         textarea(name: "conclusions", placeholder: "Conclusions", class: "form-control")

@@ -18,24 +18,20 @@
 
           .traits
             .positive
-              = add_positive_trait_form(variant)
+              - if proposal.open?
+                = add_positive_trait_form(variant)
 
               ul
                 - variant.positive_traits.each do |trait|
-                  li
-                    form action="#" method="POST" class="form-inline"
-                      = trait[:value]
-                      input type="submit" value="Delete" name="vote" class="btn btn-danger"
+                  li = delete_positive_trait_form(proposal, variant, trait[:value])
 
             .negative
-              = add_negative_trait_form(variant)
+              - if proposal.open?
+                = add_negative_trait_form(variant)
 
               ul
                 - variant.negative_traits.each do |trait|
-                  li
-                    form action="#" method="POST" class="form-inline"
-                      = trait[:value]
-                      input type="submit" value="Delete" name="vote" class="btn btn-danger"
+                  li = delete_negative_trait_form(proposal, variant, trait[:value])
 
     .decisions
       h2 What framework we should choose?
@@ -59,7 +55,8 @@
     .thread
       h2 Thread
 
-      = add_comment_form
+      - if proposal.open?
+        = add_comment_form
 
       hr
 
