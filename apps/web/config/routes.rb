@@ -6,3 +6,4 @@ resources :comments, only: %i[create]
 resources :variants, only: %i[create]
 resources :traits, only: %i[create]
 resources :proposal_statuses, only: %i[update]
+delete '/traits/:id', to: 'traits#destroy'
