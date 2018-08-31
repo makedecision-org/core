@@ -7,14 +7,12 @@ module Web::Controllers::Organisations
     expose :organisation
 
     def call(params)
-      @organisation = Organisation.new(slug: params[:slug])
-
-      # case result = operation.call(id: params[:slug])
-      # when Success
-      #   @organisation = result.value!
-      # when Failure
-      #   redirect_to routes.dashboard_path
-      # end
+      case result = operation.call(slug: params[:slug])
+      when Success
+        @organisation = result.value!
+      when Failure
+        redirect_to routes.dashboard_path
+      end
     end
   end
 end

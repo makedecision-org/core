@@ -3,8 +3,8 @@ module Organisations
     class Read < Libs::Operation
       include Import[org_repository: 'repositories.organisation']
 
-      def call(id:)
-        org = org_repository.find(id)
+      def call(slug:)
+        org = org_repository.find_by_slug(slug)
         org ? Success(org) : Failure(:not_found)
       end
     end

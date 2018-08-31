@@ -2,9 +2,9 @@ RSpec.describe Organisations::Operations::Read, type: :operation do
   include Dry::Monads::Result::Mixin
 
   let(:operation) { described_class.new(org_repository: org_repository) }
-  let(:org_repository) { double(:org_repository, find: org) }
+  let(:org_repository) { double(:org_repository, find_by_slug: org) }
 
-  subject { operation.call(id: 1) }
+  subject { operation.call(slug: 1) }
 
   context 'when proposal exist' do
     let(:org) { Organisation.new }
@@ -21,7 +21,7 @@ RSpec.describe Organisations::Operations::Read, type: :operation do
   context 'whith real dependencies' do
     let(:org) { OrganisationRepository.new.create(slug: 'test-title', title: 'test', descriprion: 'test') }
 
-    subject { operation.call(id: org.id) }
+    subject { operation.call(slug: org.slug) }
 
     it { expect(subject).to eq Success(org) }
   end
