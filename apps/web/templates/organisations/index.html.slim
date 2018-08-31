@@ -1,0 +1,14 @@
+.container
+  h1 Dashboard
+
+  hr
+
+  h2 Organisations
+
+  .organisations
+    = link_to 'Create new organisation', '#', class: 'btn btn-primary'
+
+    - organisations.each do |organisation|
+      .organisation__item
+        h3
+          = link_to organisation.title, organisation.id
