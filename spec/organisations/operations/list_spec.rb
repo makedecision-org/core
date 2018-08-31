@@ -21,7 +21,7 @@ RSpec.describe Organisations::Operations::List, type: :operation do
   context 'whith real dependencies' do
     let(:operation) { described_class.new }
 
-    before { OrganisationRepository.new.create(title: 'test', descriprion: 'test') }
+    before { OrganisationRepository.new.create(slug: 'test-title', title: 'test', descriprion: 'test') }
 
     subject { operation.call }
 

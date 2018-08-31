@@ -19,7 +19,7 @@ RSpec.describe Organisations::Operations::Read, type: :operation do
   end
 
   context 'whith real dependencies' do
-    let(:org) { OrganisationRepository.new.create(title: 'test', descriprion: 'test') }
+    let(:org) { OrganisationRepository.new.create(slug: 'test-title', title: 'test', descriprion: 'test') }
 
     subject { operation.call(id: org.id) }
 

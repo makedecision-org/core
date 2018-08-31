@@ -8,4 +8,5 @@ resources :traits, only: %i[create]
 resources :proposal_statuses, only: %i[update]
 delete '/traits', to: 'traits#destroy', as: :trait
 
-get '/dashboard', to: 'organisations#index'
+get '/dashboard', to: 'organisations#index', as: :dashboard
+get '/:id', to: 'organisations#show', as: :organisation
