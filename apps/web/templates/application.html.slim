@@ -7,28 +7,10 @@ html
     = stylesheet 'bootstrap', 'main'
   body
     .wrapper
-      nav#sidebar
-        .sidebar-header
-          h3 MakeDecision
-          strong MD
-        ul.list-unstyled.components
-          li
-            a href="#" Organisations
-          li
-            a href="#" About
+      = render partial: 'shared/sidebar'
 
       #content
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light aria-label="breadcrumb"
-          button#sidebarCollapse.btn.btn-info type="button"
-            span ☰
-
-          ol class="breadcrumb"
-            li class="breadcrumb-item"
-              a href="#" Home
-            li class="breadcrumb-item"
-              a href="#" Library
-            li class="breadcrumb-item active" aria-current="page"
-              | Data
+        = render partial: 'shared/top_navbar'
 
         .container
           = yield
