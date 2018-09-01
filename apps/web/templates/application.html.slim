@@ -6,7 +6,7 @@ html
     = favicon
     = stylesheet 'bootstrap', 'main'
   body
-    .wrapper 
+    .wrapper
       nav#sidebar
         .sidebar-header
           h3 MakeDecision
@@ -17,14 +17,21 @@ html
           li
             a href="#" About
 
-      /! Page Content
       #content
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light
-          .container-fluid
-            button#sidebarCollapse.btn.btn-info type="button" 
-              span ☰
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light aria-label="breadcrumb"
+          button#sidebarCollapse.btn.btn-info type="button"
+            span ☰
 
-        = yield
+          ol class="breadcrumb"
+            li class="breadcrumb-item"
+              a href="#" Home
+            li class="breadcrumb-item"
+              a href="#" Library
+            li class="breadcrumb-item active" aria-current="page"
+              | Data
+
+        .container
+          = yield
 
     .footer
       | Footer
