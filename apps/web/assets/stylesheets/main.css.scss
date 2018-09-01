@@ -353,6 +353,40 @@ a {
   }
 }
 
+
+/* ---------------------------------------------------
+    TOP NAVBAR
+----------------------------------------------------- */
+
+.top-navbar {
+  border-bottom: 1px solid #E9EEF2;
+  background-color: #fff !important;
+  padding: 0.75rem 1.5rem;
+  height: 60px;
+}
+
+/* ---------------------------------------------------
+    BREADCRUMB
+----------------------------------------------------- */
+.breadcrumb {
+  font-size: 14px;
+  background-color: transparent;
+  margin-bottom: 0;
+
+  .breadcrumb-item {
+    color: #007bff;
+  }
+
+  .breadcrumb-item+.breadcrumb-item::before {
+    color: #6c757d;
+    content: ">";
+  }
+
+  .active {
+    color: #6c757d;
+  }
+}
+
 /* ---------------------------------------------------
     CORE
 ----------------------------------------------------- */
