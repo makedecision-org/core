@@ -1,7 +1,12 @@
 .container
   .proposal
     .proposal__title
-      h1 #{link_to 'Proposals', routes.proposals_path} > Create a new Proposal
+      h1 Create a new proposal for #{link_to 'static', '#'} org
+
+      p
+        | A proposal contains team discussion polls and variants for voite.
+
+      hr
 
       = form
 

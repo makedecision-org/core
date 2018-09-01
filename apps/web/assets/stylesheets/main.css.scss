@@ -41,6 +41,24 @@
   }
 }
 
+.proposal-form__path {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  .proposal-form__item {
+    min-width: 20%;
+  }
+
+  .proposal-form__path-delimeter {
+    font-size: 30px;
+    margin: 25px 2% 0;
+  }
+}
+
+// Traits
+
 .traits {
   display: flex;
   flex-direction: row;
