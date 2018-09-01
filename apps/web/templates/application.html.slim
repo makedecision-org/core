@@ -6,8 +6,33 @@ html
     = favicon
     = stylesheet 'bootstrap', 'main'
   body
-    .main
-      = yield
+    .wrapper 
+      nav#sidebar
+        .sidebar-header
+          h3 MakeDecision
+          strong MD
+        ul.list-unstyled.components
+          li
+            a href="#" Organisations
+          li
+            a href="#" About
+
+      /! Page Content
+      #content
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light
+          .container-fluid
+            button#sidebarCollapse.btn.btn-info type="button" 
+              span ☰
+
+        = yield
+
     .footer
       | Footer
-    = javascript 'bootstrap', 'main'
+    = javascript 'jquery', 'bootstrap', 'main'
+    javascript:
+      $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+        });
+      });
+

@@ -1,7 +1,16 @@
-.container
-  .organisation
-    .organisation__title = organisation.title
+.organisation
+  .organisation__title = organisation.title
 
-    .organisation__description
-      = organisation.description
+  .organisation__description
+    = organisation.description
+
+  .organisation__navigation
+    nav.nav.nav-pills.nav-justified
+      a.nav-item.nav-link.active href="#" Teams
+      a.nav-item.nav-link href="#" Members
+      a.nav-item.nav-link href="#" Activity
+
+  .organisation__teams
+  .organisation__members
+  .organisation__activity
 

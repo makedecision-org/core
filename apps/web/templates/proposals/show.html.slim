@@ -1,69 +1,68 @@
-.container
-  .proposal
-    .proposal__title
-      h1 #{link_to 'Proposals', routes.proposals_path} > #{proposal.title}
+.proposal
+  .proposal__title
+    h1 #{link_to 'Proposals', routes.proposals_path} > #{proposal.title}
 
-    p = proposal_body
+  p = proposal_body
 
-    .variants
-      - if proposal.open?
-        .add_variant = add_variant_form
+  .variants
+    - if proposal.open?
+      .add_variant = add_variant_form
 
-      - proposal.variants.each do |variant|
-        .variant
-          h3.variant__title = variant.name
+    - proposal.variants.each do |variant|
+      .variant
+        h3.variant__title = variant.name
 
-          .variant__body
-            = variant_body(variant)
+        .variant__body
+          = variant_body(variant)
 
-          .traits
-            .positive
-              - if proposal.open?
-                = add_positive_trait_form(variant)
+        .traits
+          .positive
+            - if proposal.open?
+              = add_positive_trait_form(variant)
 
-              ul
-                - variant.positive_traits.each do |trait|
-                  li = delete_positive_trait_form(proposal, variant, trait[:value])
+            ul
+              - variant.positive_traits.each do |trait|
+                li = delete_positive_trait_form(proposal, variant, trait[:value])
 
-            .negative
-              - if proposal.open?
-                = add_negative_trait_form(variant)
+          .negative
+            - if proposal.open?
+              = add_negative_trait_form(variant)
 
-              ul
-                - variant.negative_traits.each do |trait|
-                  li = delete_negative_trait_form(proposal, variant, trait[:value])
+            ul
+              - variant.negative_traits.each do |trait|
+                li = delete_negative_trait_form(proposal, variant, trait[:value])
 
-    .decisions
-      h2 What framework we should choose?
+  .decisions
+    h2 What framework we should choose?
 
-      form action="#" method="POST"
-        .form-check
-          input.form-check-input type="checkbox" value="" id="hanamiCheck"
-          label.form-check-label for="hanamiCheck" Hanami
+    form action="#" method="POST"
+      .form-check
+        input.form-check-input type="checkbox" value="" id="hanamiCheck"
+        label.form-check-label for="hanamiCheck" Hanami
 
-        .form-check
-          input.form-check-input type="checkbox" value="" id="defaultCheck1"
-          label.form-check-label for="defaultCheck1" Sinatra
+      .form-check
+        input.form-check-input type="checkbox" value="" id="defaultCheck1"
+        label.form-check-label for="defaultCheck1" Sinatra
 
-        br
-        input type="submit" value="Vote" name="vote" class="btn btn-success"
+      br
+      input type="submit" value="Vote" name="vote" class="btn btn-success"
+
+  - if proposal.open?
+    .proposal__actions
+      = update_proposal_status_form
+
+  .thread
+    h2 Thread
 
     - if proposal.open?
-      .proposal__actions
-        = update_proposal_status_form
+      = add_comment_form
 
-    .thread
-      h2 Thread
+    hr
 
-      - if proposal.open?
-        = add_comment_form
+    .comments
+      - proposal.comments.each do |comment|
+        .comment
+          p = comment.created_at
 
-      hr
-
-      .comments
-        - proposal.comments.each do |comment|
-          .comment
-            p = comment.created_at
-
-            div = comment_body(comment)
+          div = comment_body(comment)
 

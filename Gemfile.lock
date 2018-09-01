@@ -139,6 +139,8 @@ GEM
       url_mount (~> 0.2.1)
     ice_nine (0.11.2)
     inflecto (0.0.2)
+    jquery-hanami (0.1.0)
+      hanami-assets
     json (2.1.0)
     kramdown (1.13.1)
     mail (2.7.0)
@@ -239,6 +241,7 @@ DEPENDENCIES
   hanami-bootstrap
   hanami-model (~> 1.2)
   hanami-webconsole
+  jquery-hanami
   kramdown (= 1.13.1)
   pg
   puma (~> 3.11.0)

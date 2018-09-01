@@ -1,13 +1,12 @@
-.container
-  h1 Proposals
+h1 Proposals
 
-  .proposals
-    = link_to 'Create new proposal', routes.new_proposal_path, class: 'btn btn-primary'
+.proposals
+  = link_to 'Create new proposal', routes.new_proposal_path, class: 'btn btn-primary'
 
-    - proposals.each do |proposal|
-      .proposals__item
-        h2
-          = link_to "#{proposal.title} (#{proposal.status})", routes.proposal_path(proposal.id)
-        - unless proposal.open?
-          .conclusions
-            | Conclusions: #{proposal.conclusions}
+  - proposals.each do |proposal|
+    .proposals__item
+      h2
+        = link_to "#{proposal.title} (#{proposal.status})", routes.proposal_path(proposal.id)
+      - unless proposal.open?
+        .conclusions
+          | Conclusions: #{proposal.conclusions}

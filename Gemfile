@@ -21,6 +21,7 @@ gem 'dry-monads', '~> 1.0.0'
 gem 'slim'
 gem 'sass'
 gem 'hanami-bootstrap'
+gem 'jquery-hanami'
 
 # markdown
 gem 'kramdown', '1.13.1'
