@@ -1,3 +1,5 @@
+require_relative './team'
+
 class Organisation < Hanami::Entity
   attributes do
     attribute :id, Types::Int
@@ -9,6 +11,8 @@ class Organisation < Hanami::Entity
     attribute :raw_description, Types::String
 
     attribute :public, Types::Bool
+
+    attribute :teams, Types::Collection(Team)
 
     attribute :created_at, Types::Time
     attribute :updated_at, Types::Time
