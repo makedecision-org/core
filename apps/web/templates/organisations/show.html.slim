@@ -13,7 +13,16 @@
       a.nav-item.nav-link href="#" Members
       a.nav-item.nav-link href="#" Activity
 
+  .organisation__proposals
+
   .organisation__teams
+    - organisation.teams.each do |team|
+      .card
+        .card-body
+          .card-title
+            a href="#"
+              h5 = team.title
+          p.card-text = team.body
+
   .organisation__members
   .organisation__activity
-

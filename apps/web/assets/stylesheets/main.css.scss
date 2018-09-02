@@ -6,6 +6,18 @@
   font-weight: 400;
 }
 
+.organisation__teams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2% 0;
+
+  .card {
+    width: 30rem;
+    margin: 1% 0;
+  }
+}
+
 
 // proposals
 
