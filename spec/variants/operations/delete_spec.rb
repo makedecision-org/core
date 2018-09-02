@@ -19,7 +19,7 @@ RSpec.describe Variants::Operations::Delete, type: :operation do
 
   context 'whis real dependencies' do
     let(:operation) { described_class.new }
-    let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+    let(:proposal) { Fabricate.create(:proposal) }
     let(:variant) { VariantRepository.new.create(name: 'test', proposal_id: proposal.id) }
 
     subject { operation.call(id: variant.id) }

@@ -18,7 +18,7 @@ RSpec.describe Proposals::Operations::CreateComment, type: :operation do
 
   context 'whis real dependencies' do
     let(:operation) { described_class.new }
-    let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+    let(:proposal) { Fabricate.create(:proposal) }
 
     subject { operation.call(proposal_id: proposal.id, body: 'new comment here') }
 

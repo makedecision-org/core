@@ -24,7 +24,7 @@ RSpec.describe Web::Controllers::Organisations::Show, type: :action do
   context 'whith a real dependency' do
     let(:action) { described_class.new }
 
-    before { OrganisationRepository.new.create(title: 'test', description: 'something', slug: 'test') }
+    before { Fabricate.create(:organisation) }
 
     it { expect(subject).to be_success 200 }
   end

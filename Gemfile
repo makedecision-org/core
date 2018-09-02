@@ -39,6 +39,7 @@ group :test, :development do
   gem 'dotenv', '~> 2.4'
 
   gem 'database_cleaner'
+  gem 'hanami-fabrication'
 end
 
 group :test do

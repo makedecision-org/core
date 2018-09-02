@@ -54,7 +54,7 @@ RSpec.describe Proposals::Operations::UpdateStatus, type: :operation do
   context 'whith real dependencies' do
     let(:operation) { described_class.new }
     let(:repo) { ProposalRepository.new }
-    let(:proposal) { repo.create(title: 'test', body: 'test', status: 'open') }
+    let(:proposal) { Fabricate.create(:proposal, status: 'open') }
 
     subject { operation.call(id: proposal.id, status: 'approved', conclusions: 'closed') }
 

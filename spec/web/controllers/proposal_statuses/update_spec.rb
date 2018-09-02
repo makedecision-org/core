@@ -12,7 +12,7 @@ RSpec.describe Web::Controllers::ProposalStatuses::Update, type: :action do
 
   xcontext 'with real dependencies' do
     let(:action) { described_class.new }
-    let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+    let(:proposal) { Fabricate.create(:proposal) }
     let(:params) { { proposal_id: proposal.id, name: 'test variant' } }
 
     it { expect { subject }.to change { VariantRepository.new.all.count }.by(1) }

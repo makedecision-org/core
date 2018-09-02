@@ -12,7 +12,7 @@ RSpec.describe Web::Controllers::Traits::Create, type: :action do
 
   context 'with real dependencies' do
     let(:action) { described_class.new }
-    let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+    let(:proposal) { Fabricate.create(:proposal) }
     let(:variant) { VariantRepository.new.create(name: 'variant #1', proposal_id: proposal.id) }
     let(:params) { { variant_id: variant.id, trait_type: 'positive', value: 'new posititve trait' } }
 

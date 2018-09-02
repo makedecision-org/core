@@ -23,7 +23,7 @@ RSpec.describe Web::Controllers::Proposals::Show, type: :action do
 
   context 'whith a real dependency' do
     let(:action) { described_class.new }
-    let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+    let(:proposal) { Fabricate.create(:proposal) }
 
     let(:params) { { id: proposal.id } }
 

@@ -1,4 +1,5 @@
 require_relative './team'
+require_relative './proposal'
 
 class Organisation < Hanami::Entity
   attributes do
@@ -13,6 +14,7 @@ class Organisation < Hanami::Entity
     attribute :public, Types::Bool
 
     attribute :teams, Types::Collection(Team)
+    attribute :proposals, Types::Collection(Proposal)
 
     attribute :created_at, Types::Time
     attribute :updated_at, Types::Time

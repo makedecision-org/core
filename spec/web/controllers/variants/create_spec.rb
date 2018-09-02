@@ -12,7 +12,7 @@ RSpec.describe Web::Controllers::Variants::Create, type: :action do
 
   context 'with real dependencies' do
     let(:action) { described_class.new }
-    let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+    let(:proposal) { Fabricate.create(:proposal) }
     let(:params) { { proposal_id: proposal.id, name: 'test variant', body: 'test' } }
 
     it { expect { subject }.to change { VariantRepository.new.all.count }.by(1) }

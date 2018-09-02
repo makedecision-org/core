@@ -19,7 +19,7 @@ RSpec.describe Proposals::Operations::Read, type: :operation do
   end
 
   context 'whith real dependencies' do
-    let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+    let(:proposal) { Fabricate.create(:proposal) }
 
     subject { operation.call(id: proposal.id) }
 

@@ -80,6 +80,7 @@ GEM
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.11.0)
     erubi (1.7.1)
+    fabrication (2.20.1)
     ffi (1.9.25)
     hanami (1.2.0)
       bundler
@@ -105,6 +106,9 @@ GEM
     hanami-controller (1.2.0)
       hanami-utils (~> 1.2)
       rack (~> 2.0)
+    hanami-fabrication (0.1.0)
+      fabrication (~> 2.16)
+      hanami-utils (< 2.0)
     hanami-helpers (1.2.2)
       hanami-utils (~> 1.2)
     hanami-mailer (1.2.0)
@@ -239,6 +243,7 @@ DEPENDENCIES
   dry-system-hanami!
   hanami (= 1.2.0)
   hanami-bootstrap
+  hanami-fabrication
   hanami-model (~> 1.2)
   hanami-webconsole
   jquery-hanami

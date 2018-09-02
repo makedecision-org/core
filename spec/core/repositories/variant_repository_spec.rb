@@ -1,6 +1,6 @@
 RSpec.describe VariantRepository, type: :repository do
   let(:repo) { described_class.new }
-  let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+  let(:proposal) { Fabricate.create(:proposal) }
 
   describe '#add_positive_trait' do
     subject { repo.add_positive_trait(variant.id, 'new positive trait') }

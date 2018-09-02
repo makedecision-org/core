@@ -28,7 +28,7 @@ RSpec.describe Variants::Operations::Create, type: :operation do
 
   context 'whis real dependencies' do
     let(:operation) { described_class.new }
-    let(:proposal) { ProposalRepository.new.create(title: 'test', body: 'test') }
+    let(:proposal) { Fabricate.create(:proposal) }
 
     subject { operation.call(proposal_id: proposal.id, name: 'new variant here') }
 

@@ -2,7 +2,7 @@ RSpec.describe ProposalRepository, type: :repository do
   let(:repo) { described_class.new }
 
   describe '#find_with_variants' do
-    let(:proposal) { repo.create(title: 'test', body: 'test case for new proposal') }
+    let(:proposal) { Fabricate.create(:proposal) }
 
     subject { repo.find_with_variants(proposal.id) }
 
