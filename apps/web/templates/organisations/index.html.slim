@@ -9,5 +9,8 @@ h2 Organisations
 
   - organisations.each do |organisation|
     .organisation__item
-      h3
-        = link_to organisation.title, organisation.slug
+      .card
+        .card-body
+          .card-title
+            a href="#{organisation.slug}"
+              h5 = organisation.title
