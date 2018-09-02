@@ -19,7 +19,7 @@ RSpec.describe Organisations::Operations::CreateTeam, type: :operation do
 
   context 'whith real dependencies' do
     let(:operation) { described_class.new }
-    let(:organisation) { OrganisationRepository.new.create(title: 'test', description: 'test', slug: 'test') }
+    let(:organisation) { Fabricate.create(:organisation) }
 
     subject { operation.call(title: 'test title', body: 'something here', organisation_id: organisation.id) }
 

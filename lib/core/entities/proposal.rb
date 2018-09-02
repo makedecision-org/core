@@ -8,7 +8,7 @@ class Proposal < Hanami::Entity
 
   attributes do
     attribute :id, Types::Int
-    
+
     attribute :organisation_id, Types::Int
 
     attribute :title, Types::String

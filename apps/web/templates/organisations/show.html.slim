@@ -14,6 +14,13 @@
       a.nav-item.nav-link href="#" Activity
 
   .organisation__proposals
+    h4 Team name here
+    - organisation.proposals.each do |proposal|
+      .card
+        .card-body
+          .card-title
+            a href="#"
+              h5 = proposal.title
 
   .organisation__teams
     - organisation.teams.each do |team|
