@@ -1,6 +1,6 @@
 RSpec.describe Web::Controllers::Organisations::Show, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { slug: 'test' } }
+  let(:params) { { id: 'test' } }
 
   subject { action.call(params) }
 

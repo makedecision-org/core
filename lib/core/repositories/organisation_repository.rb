@@ -8,4 +8,9 @@ class OrganisationRepository < Hanami::Repository
     # TODO: specs for aggregate
     aggregate(:teams, :proposals).where(slug: slug).map_to(Organisation).one
   end
+
+  def find_id(slug)
+    # TODO: specs
+    root.where(slug: slug).one!.id
+  end
 end

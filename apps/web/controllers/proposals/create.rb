@@ -7,9 +7,15 @@ module Web::Controllers::Proposals
     expose :proposal
 
     def call(params)
-      case result = operation.call(title: params[:proposal][:title], body: params[:proposal][:body])
+      payload = {
+        organisation_slug: params[:organisation_id],
+        title: params[:proposal][:title],
+        body: params[:proposal][:body]
+      }
+
+      case result = operation.call(payload)
       when Success
-        redirect_to routes.proposal_path(result.value!.id)
+        redirect_to routes.organisation_proposal_path(params[:organisation_id], result.value!.id)
       when Failure
         proposal = Proposal.new(title: params[:title], body: params[:body])
 

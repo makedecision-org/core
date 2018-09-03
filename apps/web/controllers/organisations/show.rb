@@ -7,7 +7,7 @@ module Web::Controllers::Organisations
     expose :organisation
 
     def call(params)
-      case result = operation.call(slug: params[:slug])
+      case result = operation.call(slug: params[:id])
       when Success
         @organisation = result.value!
       when Failure

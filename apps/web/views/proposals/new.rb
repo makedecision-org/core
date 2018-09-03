@@ -3,7 +3,7 @@ module Web::Views::Proposals
     include Web::View
 
     def form
-      form_for :proposal, routes.proposals_path, { method: :post } do
+      form_for :proposal, routes.organisation_proposals_path(params[:organisation_id]), { method: :post } do
         div(class: 'proposal-form__path') do
           div(class: 'form-group proposal-form__item') do
             label :team

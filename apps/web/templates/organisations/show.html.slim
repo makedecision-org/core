@@ -14,6 +14,8 @@
       a.nav-item.nav-link href="#" Activity
 
   .organisation__proposals
+    = link_to 'Create new proposal', routes.new_organisation_proposal_path(organisation.slug), class: 'btn btn-primary'
+
     h4 Team name here
     - organisation.proposals.each do |proposal|
       .card
