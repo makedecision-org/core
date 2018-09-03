@@ -1,6 +1,6 @@
 RSpec.describe Web::Controllers::Proposals::Show, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { id: 1 } }
+  let(:params) { { organisation_id: 'test', id: 1 } }
 
   subject { action.call(params) }
 
@@ -18,7 +18,7 @@ RSpec.describe Web::Controllers::Proposals::Show, type: :action do
   context 'when operation returns failure result' do
     let(:operation) { -> (id:) { Failure(:not_found) } }
 
-    it { expect(subject).to redirect_to('/proposals') }
+    it { expect(subject).to redirect_to('/organisations/test') }
   end
 
   context 'whith a real dependency' do

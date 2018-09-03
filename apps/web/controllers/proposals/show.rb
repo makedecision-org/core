@@ -11,7 +11,7 @@ module Web::Controllers::Proposals
       when Success
         @proposal = result.value!
       when Failure
-        redirect_to routes.proposals_path
+        redirect_to routes.organisation_path(params[:organisation_id])
       end
     end
   end
