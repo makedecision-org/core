@@ -10,6 +10,13 @@ module Web::Views::Proposals
       )
     end
 
+    def sidebar_actions
+      html do
+        li { link_to 'Add members', '#' }
+        li { link_to 'Create team', '#' }
+      end
+    end
+
     def form
       form_for :proposal, routes.organisation_proposals_path(params[:organisation_id]), { method: :post } do
         div(class: 'proposal-form__path') do

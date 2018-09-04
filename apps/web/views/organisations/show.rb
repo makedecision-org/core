@@ -8,5 +8,12 @@ module Web::Views::Organisations
         [organisation.title]
       )
     end
+
+    def sidebar_actions
+      html do
+        li { link_to 'Add members', '#' }
+        li { link_to 'Create team', '#' }
+      end
+    end
   end
 end

@@ -10,6 +10,13 @@ module Web::Views::Proposals
       )
     end
 
+    def sidebar_actions
+      html do
+        li { link_to 'Add members', '#' }
+        li { link_to 'Create team', '#' }
+      end
+    end
+
     def proposal_body
       raw_body(proposal.body)
     end
