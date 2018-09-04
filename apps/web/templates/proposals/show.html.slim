@@ -18,19 +18,19 @@
         .traits
           .positive
             - if proposal.open?
-              = add_positive_trait_form(variant)
+              = add_positive_trait_form(variant, org_id: params[:organisation_id])
 
             ul
               - variant.positive_traits.each do |trait|
-                li = delete_positive_trait_form(proposal, variant, trait[:value])
+                li = delete_positive_trait_form(proposal, variant, trait[:value], org_id: params[:organisation_id])
 
           .negative
             - if proposal.open?
-              = add_negative_trait_form(variant)
+              = add_negative_trait_form(variant, org_id: params[:organisation_id])
 
             ul
               - variant.negative_traits.each do |trait|
-                li = delete_negative_trait_form(proposal, variant, trait[:value])
+                li = delete_negative_trait_form(proposal, variant, trait[:value], org_id: params[:organisation_id])
 
   .decisions
     h2 What framework we should choose?

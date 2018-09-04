@@ -4,8 +4,8 @@ module Web::Controllers::Traits
     include Import[operation: 'variants.operations.add_trait']
 
     def call(params)
-      result = operation.call(**params)
-      redirect_to routes.proposal_path(result.value!.proposal_id)
+      result = operation.call(**params.to_h.slice(:variant_id, :value, :trait_type))
+      redirect_to routes.organisation_proposal_path(params[:organisation_id], result.value!.proposal_id)
     end
   end
 end

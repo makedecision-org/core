@@ -23,8 +23,8 @@ module Web::Views::Proposals
       end
     end
 
-    def add_positive_trait_form(variant)
-      form_for :trait, routes.traits_path, { method: :post, class: 'form-inline' } do
+    def add_positive_trait_form(variant, options = {})
+      form_for :trait, routes.traits_path(organisation_id: options[:org_id]), { method: :post, class: 'form-inline' } do
         input(name: 'variant_id', type: 'hidden', value: variant.id)
         input(name: 'trait_type', type: 'hidden', value: 'positive')
         input(name: 'value', type: 'text', placeholder: 'Positive trait', class: 'form-control')
@@ -32,8 +32,8 @@ module Web::Views::Proposals
       end
     end
 
-    def add_negative_trait_form(variant)
-      form_for :trait, routes.traits_path, { method: :post, class: 'form-inline' } do
+    def add_negative_trait_form(variant, options = {})
+      form_for :trait, routes.traits_path(organisation_id: options[:org_id]), { method: :post, class: 'form-inline' } do
         input(name: 'variant_id', type: 'hidden', value: variant.id)
         input(name: 'trait_type', type: 'hidden', value: 'negative')
         input(name: 'value', type: 'text', placeholder: 'Negative trait', class: 'form-control')
@@ -41,10 +41,10 @@ module Web::Views::Proposals
       end
     end
 
-    def delete_positive_trait_form(proposal, variant, trait_text)
+    def delete_positive_trait_form(proposal, variant, trait_text, options = {})
       return trait_text unless proposal.open?
 
-      form_for :trait, routes.trait_path, { method: :delete, class: 'form-inline' } do
+      form_for :trait, routes.trait_path(organisation_id: options[:org_id]), { method: :delete, class: 'form-inline' } do
         input(name: 'variant_id', type: 'hidden', value: variant.id)
         input(name: 'trait_type', type: 'hidden', value: 'positive')
         input(name: 'value', type: 'hidden', value: trait_text)
@@ -53,10 +53,10 @@ module Web::Views::Proposals
       end
     end
 
-    def delete_negative_trait_form(proposal, variant, trait_text)
+    def delete_negative_trait_form(proposal, variant, trait_text, options = {})
       return trait_text unless proposal.open?
 
-      form_for :trait, routes.trait_path, { method: :delete, class: 'form-inline' } do
+      form_for :trait, routes.trait_path(organisation_id: options[:org_id]), { method: :delete, class: 'form-inline' } do
         input(name: 'variant_id', type: 'hidden', value: variant.id)
         input(name: 'trait_type', type: 'hidden', value: 'negative')
         input(name: 'value', type: 'hidden', value: trait_text)
