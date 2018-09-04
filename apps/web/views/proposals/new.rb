@@ -2,6 +2,14 @@ module Web::Views::Proposals
   class New
     include Web::View
 
+    def breadcrumb
+      breadcrumb_generator(
+        ['Dashboard', '/dashboard'],
+        [params[:organisation_id], "/organisations/#{params[:organisation_id]}"],
+        ['New Proposal']
+      )
+    end
+
     def form
       form_for :proposal, routes.organisation_proposals_path(params[:organisation_id]), { method: :post } do
         div(class: 'proposal-form__path') do

@@ -1,5 +1,6 @@
 require 'hanami/helpers'
 require 'hanami/assets'
+require_relative './views/breadcrumb_generator'
 
 module Web
   class Application < Hanami::Application
@@ -270,6 +271,7 @@ module Web
       view.prepare do
         include Hanami::Helpers
         include Web::Assets::Helpers
+        include Web::Views::BreadcrumbGenerator
       end
     end
 

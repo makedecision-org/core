@@ -2,6 +2,14 @@ module Web::Views::Proposals
   class Show
     include Web::View
 
+    def breadcrumb
+      breadcrumb_generator(
+        ['Dashboard', '/dashboard'],
+        [params[:organisation_id], "/organisations/#{params[:organisation_id]}"],
+        [proposal.title]
+      )
+    end
+
     def proposal_body
       raw_body(proposal.body)
     end
