@@ -4,8 +4,8 @@ module Web::Controllers::Comments
     include Import[operation: 'proposals.operations.create_comment']
 
     def call(params)
-      result = operation.call(**params)
-      redirect_to routes.proposal_path(result.value!.proposal_id)
+      result = operation.call(**params.to_h.slice(:proposal_id, :body))
+      redirect_to routes.organisation_proposal_path(params[:organisation_id], result.value!.proposal_id)
     end
   end
 end
