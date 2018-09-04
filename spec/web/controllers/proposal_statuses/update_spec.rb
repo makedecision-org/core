@@ -1,13 +1,19 @@
 RSpec.describe Web::Controllers::ProposalStatuses::Update, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { id: 1, status: :test } }
+  let(:params) { { organisation_id: 'test', id: 1, status: :test } }
 
   subject { action.call(params) }
 
   context 'when operation returns success result' do
     let(:operation) { -> (id:, **_) { Success(id) } }
 
-    it { expect(subject).to redirect_to('/proposals/1') }
+    it { expect(subject).to redirect_to('/organisations/test/proposals/1') }
+  end
+
+  context 'when operation returns failure result' do
+    let(:operation) { -> (id:, **_) { Failure(id) } }
+
+    it { expect(subject).to redirect_to('/organisations/test/proposals/1') }
   end
 
   xcontext 'with real dependencies' do

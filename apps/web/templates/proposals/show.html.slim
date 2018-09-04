@@ -1,6 +1,6 @@
 .proposal
   .proposal__title
-    h1 #{link_to 'Proposals', routes.proposals_path} > #{proposal.title}
+    h1 = proposal.title
 
   p = proposal_body
 
@@ -49,13 +49,13 @@
 
   - if proposal.open?
     .proposal__actions
-      = update_proposal_status_form
+      = update_proposal_status_form(org_id: params[:organisation_id])
 
   .thread
     h2 Thread
 
     - if proposal.open?
-      = add_comment_form
+      = add_comment_form(org_id: params[:organisation_id])
 
     hr
 

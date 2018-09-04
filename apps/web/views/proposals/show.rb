@@ -65,8 +65,8 @@ module Web::Views::Proposals
       end
     end
 
-    def update_proposal_status_form
-      form_for :trait, routes.proposal_status_path(proposal.id), { method: :patch } do
+    def update_proposal_status_form(options = {})
+      form_for :trait, routes.proposal_status_path(proposal.id, organisation_id: options[:org_id]), { method: :patch } do
         textarea(name: "conclusions", placeholder: "Conclusions", class: "form-control")
         br
         button(type: "submit", value: "denied", name: "status", class: "btn btn-danger") { 'Deny' }
@@ -74,8 +74,8 @@ module Web::Views::Proposals
       end
     end
 
-    def add_comment_form
-      form_for :comment, routes.comments_path, { method: :post } do
+    def add_comment_form(options = {})
+      form_for :comment, routes.comments_path(organisation_id: options[:org_id]), { method: :post } do
         input(name: 'proposal_id', type: 'hidden', value: proposal.id)
         textarea(name: "body", placeholder: "New comment", class: "form-control")
         br
