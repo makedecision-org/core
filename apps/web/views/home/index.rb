@@ -2,7 +2,6 @@ module Web::Views::Home
   class Index
     include Web::View
 
-    def breadcrumb
-    end
+    layout false
   end
 end

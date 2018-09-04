@@ -1,3 +1,18 @@
-h1 Hello
+doctype html
+html
+  head
+    title
+      | Web
+    = favicon
+    = stylesheet 'bootstrap', 'main'
+  body
+    h1 Hello
 
-= link_to 'Dashboard', routes.dashboard_path
+    = link_to 'Dashboard', routes.dashboard_path
+
+    .footer
+      | Footer
+    = javascript 'jquery', 'bootstrap', 'main'
+
+
+
