@@ -14,8 +14,8 @@ module Web::Views::Proposals
       raw_body(variant.body)
     end
 
-    def add_variant_form
-      form_for :variant, routes.variants_path, { method: :post } do
+    def add_variant_form(options = {})
+      form_for :variant, routes.variants_path(organisation_id: options[:org_id]), { method: :post } do
         input(name: 'proposal_id', type: 'hidden', value: proposal.id)
         input(name: 'name', type: 'text', placeholder: 'New Variant', class: 'form-control')
         textarea(name: 'body', placeholder: 'Description', class: 'form-control')

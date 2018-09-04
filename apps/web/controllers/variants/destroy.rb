@@ -7,7 +7,7 @@ module Web::Controllers::Variants
     def call(params)
       case result = operation.call(id: params[:id])
       when Success
-        redirect_to routes.proposal_path(result.value!.proposal_id)
+        redirect_to routes.organisation_proposal_path(params[:organisation_id], result.value!.proposal_id)
       when Failure
         halt 404
       end

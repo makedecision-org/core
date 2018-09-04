@@ -4,8 +4,8 @@ module Web::Controllers::Variants
     include Import[operation: 'variants.operations.create']
 
     def call(params)
-      operation.call(**params)
-      redirect_to routes.proposal_path(params[:proposal_id])
+      operation.call(**params.to_h.slice(:proposal_id, :name, :body))
+      redirect_to routes.organisation_proposal_path(params[:organisation_id], params[:proposal_id])
     end
   end
 end

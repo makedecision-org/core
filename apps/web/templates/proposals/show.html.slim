@@ -6,7 +6,7 @@
 
   .variants
     - if proposal.open?
-      .add_variant = add_variant_form
+      .add_variant = add_variant_form(org_id: params[:organisation_id])
 
     - proposal.variants.each do |variant|
       .variant
