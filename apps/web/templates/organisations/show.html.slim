@@ -29,13 +29,19 @@
               h5 #{proposal.title} (#{proposal.status})
 
   .organisation__teams.nav-target.d-none
-    - organisation.teams.each do |team|
-      .card
-        .card-body
-          .card-title
-            a href=routes.organisation_team_path(organisation.slug, team.id)
-              h5 = team.title
-          p.card-text = team.body
+    .organisation__teams-title
+      h3
+        | Teams
+        = link_to '+', '#', class: 'btn btn-primary'
+
+    .organisation__teams-list
+      - organisation.teams.each do |team|
+        .card
+          .card-body
+            .card-title
+              a href=routes.organisation_team_path(organisation.slug, team.id)
+                h5 = team.title
+            p.card-text = team.body
 
   .organisation__members.nav-target.d-none
   .organisation__activity.nav-target.d-none
