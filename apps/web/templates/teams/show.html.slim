@@ -1,0 +1,17 @@
+.team
+  h1.team__title = team.title
+
+  .team__description
+    = team.body
+
+  hr
+
+  .team__navigation
+    nav.nav.nav-pills.nav-justified
+      a.nav-item.nav-link.active data-target=".team__proposals" href="#" Open Proposals
+      a.nav-item.nav-link data-target=".team__teams" href="#" Applied Proposals
+      a.nav-item.nav-link data-target=".team__teams" href="#" Denied Proposals
+      a.nav-item.nav-link data-target=".team__members" href="#" Members
+      a.nav-item.nav-link data-target=".team__activity" href="#" Activity
+
+  br

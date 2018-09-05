@@ -33,7 +33,7 @@
       .card
         .card-body
           .card-title
-            a href="#"
+            a href=routes.organisation_team_path(organisation.slug, team.id)
               h5 = team.title
           p.card-text = team.body
 

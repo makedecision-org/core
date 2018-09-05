@@ -26,6 +26,9 @@ class Container < Dry::System::Container
   # organisations
   register_folder! 'organisations/operations'
 
+  # teams
+  register_folder! 'teams/operations'
+
   configure do |config|
     config.env = Hanami.env
   end
