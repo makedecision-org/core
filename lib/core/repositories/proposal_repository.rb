@@ -8,6 +8,6 @@ class ProposalRepository < Hanami::Repository
   end
 
   def find_with_variants(id)
-    aggregate(:variants, :comments).where(id: id).map_to(Proposal).one
+    aggregate(:variants, :comments, :team).where(id: id).map_to(Proposal).one
   end
 end

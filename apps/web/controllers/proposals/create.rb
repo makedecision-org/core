@@ -20,7 +20,8 @@ module Web::Controllers::Proposals
       when Failure
         proposal = Proposal.new(title: params[:title], body: params[:body])
 
-        self.body = Web::Views::Proposals::New.render(format: format, proposal: proposal,
+        # TODO: fix it
+        self.body = Web::Views::Proposals::New.render(format: format, proposal: proposal, teams: [],
           errors: result.failure, params: params)
           # errors: result.failure, params: params, updated_csrf_token: set_csrf_token)
       end

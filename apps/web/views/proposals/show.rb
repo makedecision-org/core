@@ -5,8 +5,8 @@ module Web::Views::Proposals
     def breadcrumb
       breadcrumb_generator(
         ['Dashboard', '/dashboard'],
-        [params[:organisation_id], "/organisations/#{params[:organisation_id]}"],
-        ['team name', "/organisations/#{params[:organisation_id]}/teams/1"],
+        [params[:organisation_id], routes.organisation_path(params[:organisation_id])],
+        [proposal.team.title, routes.organisation_team_path(params[:organisation_id], proposal.team.id)],
         [proposal.title]
       )
     end

@@ -1,6 +1,9 @@
 require_relative './variant'
 require_relative './comment'
-require_relative './team'
+
+# Hack for reqursion entity loading
+class Team < Hanami::Entity
+end
 
 class Proposal < Hanami::Entity
   OPEN = 'open'
@@ -22,6 +25,7 @@ class Proposal < Hanami::Entity
 
     attribute :status, ::Types::ProposalStatuses
 
+    attribute :team, Types::Entity(Team)
     attribute :variants, Types::Collection(Variant)
     attribute :comments, Types::Collection(Comment)
 
