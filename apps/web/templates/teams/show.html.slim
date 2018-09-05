@@ -10,14 +10,37 @@
     nav.nav.nav-pills.nav-justified
       a.nav-item.nav-link.active data-target=".team__open-proposals" href="#" Open Proposals
       a.nav-item.nav-link data-target=".team__approved-proposals" href="#" Approved Proposals
-      a.nav-item.nav-link data-target=".team__denied-proposals" href="#" denied Proposals
+      a.nav-item.nav-link data-target=".team__denied-proposals" href="#" Denied Proposals
       a.nav-item.nav-link data-target=".team__members" href="#" Members
       a.nav-item.nav-link data-target=".team__activity" href="#" Activity
 
   br
 
-  .team__open-proposals
-  .team__approved-proposals
-  .team__denied-proposals
-  .team__members
-  .team__activity
+  .team__open-proposals.nav-target
+    - (proposals['open'] || []).each do |proposal|
+      .card
+        .card-body
+          .card-title
+            a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
+              h5 #{proposal.title}
+
+  .team__approved-proposals.nav-target.d-none
+    - (proposals['approved'] || []).each do |proposal|
+      .card
+        .card-body
+          .card-title
+            a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
+              h5 #{proposal.title}
+          p.card-text = proposal.conclusions
+
+  .team__denied-proposals.nav-target.d-none
+    - (proposals['denied'] || []).each do |proposal|
+      .card
+        .card-body
+          .card-title
+            a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
+              h5 #{proposal.title}
+          p.card-text = proposal.conclusions
+
+  .team__members.nav-target.d-none
+  .team__activity.nav-target.d-none
