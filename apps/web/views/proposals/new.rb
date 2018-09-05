@@ -27,7 +27,7 @@ module Web::Views::Proposals
         div(class: 'proposal-form__path') do
           div(class: 'form-group proposal-form__item') do
             label :team
-            values = { 'Team #1' => '1', 'Team #2' => '2' }
+            values = teams.map { |team| [team.title, team.id] }.to_h
             select :team_id, values, class: 'form-control'
           end
 

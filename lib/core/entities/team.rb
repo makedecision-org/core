@@ -5,7 +5,7 @@ class Team < Hanami::Entity
     attribute :id, Types::Int
     attribute :organisation_id, Types::Int
 
-    attribute :title,           Types::String
+    attribute :title,    Types::String # TODO: add constrain for uniq
     attribute :body,     Types::String
     attribute :raw_body, Types::String
 
