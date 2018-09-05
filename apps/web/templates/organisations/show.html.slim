@@ -8,13 +8,17 @@
 
   .organisation__navigation
     nav.nav.nav-pills.nav-justified
-      a.nav-item.nav-link.active href="#" Proposals
-      a.nav-item.nav-link href="#" Teams
-      a.nav-item.nav-link href="#" Members
-      a.nav-item.nav-link href="#" Activity
+      a.nav-item.nav-link.active data-target=".organisation__proposals" href="#" Proposals
+      a.nav-item.nav-link data-target=".organisation__teams" href="#" Teams
+      a.nav-item.nav-link data-target=".organisation__members" href="#" Members
+      a.nav-item.nav-link data-target=".organisation__activity" href="#" Activity
 
-  .organisation__proposals
-    = link_to 'Create new proposal', routes.new_organisation_proposal_path(organisation.slug), class: 'btn btn-primary'
+  br
+
+  .organisation__proposals.nav-target
+    h3
+      | Tasks
+      = link_to '+', routes.new_organisation_proposal_path(organisation.slug), class: 'btn btn-primary'
 
     h4 Team name here
     - organisation.proposals.each do |proposal|
@@ -22,9 +26,9 @@
         .card-body
           .card-title
             a href=routes.organisation_proposal_path(organisation.slug, proposal.id)
-              h5 = proposal.title
+              h5 #{proposal.title} (#{proposal.status})
 
-  .organisation__teams
+  .organisation__teams.nav-target.d-none
     - organisation.teams.each do |team|
       .card
         .card-body
@@ -33,5 +37,5 @@
               h5 = team.title
           p.card-text = team.body
 
-  .organisation__members
-  .organisation__activity
+  .organisation__members.nav-target.d-none
+  .organisation__activity.nav-target.d-none

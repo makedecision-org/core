@@ -6,10 +6,12 @@ h2 Organisations
 
 .organisations__navigation
   nav.nav.nav-pills.nav-justified
-    a.nav-item.nav-link.active href="#" Your Organisations
-    a.nav-item.nav-link href="#" Starred Organisation
+    a.nav-item.nav-link.active data-target=".organisations" href="#" Your Organisations
+    a.nav-item.nav-link data-target=".starred_organisations" href="#" Starred Organisation
 
-.organisations
+br
+
+.organisations.nav-target
   - organisations.each do |organisation|
     .organisation__item
       .card
@@ -17,3 +19,5 @@ h2 Organisations
           .card-title
             a href="#{routes.organisation_path(organisation.slug)}"
               h5 = organisation.title
+
+.starred_organisations.nav-target.d-none
