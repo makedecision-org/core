@@ -26,4 +26,35 @@ RSpec.describe ProposalRepository, type: :repository do
       it { expect(subject).to eq nil }
     end
   end
+
+  describe '#grupped_by_status_for_team' do
+    let(:team) { Fabricate.create(:team) }
+
+    subject { repo.grupped_by_status_for_team(team.id) }
+
+    context 'when team has some proposals' do
+      before do
+        Fabricate.create(:proposal, team_id: team.id, status: 'open')
+        Fabricate.create(:proposal, team_id: team.id, status: 'approved')
+
+        Fabricate.create(:proposal, status: 'approved')
+      end
+
+      it { expect(subject.keys).to eq ['open', 'approved'] }
+      it { expect(subject['open'].count).to eq 1 }
+      it { expect(subject['approved'].count).to eq 1 }
+    end
+
+    context 'when team does not have proposals' do
+      before { Fabricate.create(:proposal, status: 'approved') }
+
+      it { expect(subject).to eq({}) }
+    end
+
+    context 'when team does not exist' do
+      subject { repo.grupped_by_status_for_team(0) }
+
+      it { expect(subject).to eq({}) }
+    end
+  end
 end
