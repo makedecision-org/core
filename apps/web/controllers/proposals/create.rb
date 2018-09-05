@@ -9,6 +9,7 @@ module Web::Controllers::Proposals
     def call(params)
       payload = {
         organisation_slug: params[:organisation_id],
+        team_id: params[:proposal][:team_id],
         title: params[:proposal][:title],
         body: params[:proposal][:body]
       }

@@ -19,7 +19,8 @@ RSpec.describe Web::Controllers::Proposals::Create, type: :action do
   context 'whith a real dependency' do
     let(:action) { described_class.new }
     let(:organisation) { Fabricate.create(:organisation, slug: 'test') } 
-    let(:params) { { organisation_id: organisation.slug, proposal: { title: 'test', body: 'test' } } }
+    let(:team) { Fabricate.create(:team, organisation_id: organisation.id) } 
+    let(:params) { { organisation_id: organisation.slug, proposal: { team_id: team.id, title: 'test', body: 'test' } } }
 
     it { expect(subject).to be_success 200 }
     it { expect{ subject }.to change { ProposalRepository.new.all.count }.by(1) }

@@ -1,3 +1,5 @@
+require_relative './proposal'
+
 class Team < Hanami::Entity
   attributes do
     attribute :id, Types::Int
@@ -6,6 +8,8 @@ class Team < Hanami::Entity
     attribute :title,           Types::String
     attribute :body,     Types::String
     attribute :raw_body, Types::String
+
+    attribute :proposals, Types::Collection(Proposal)
 
     attribute :created_at, Types::Time
     attribute :updated_at, Types::Time

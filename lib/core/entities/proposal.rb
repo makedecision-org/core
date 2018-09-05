@@ -1,5 +1,6 @@
 require_relative './variant'
 require_relative './comment'
+require_relative './team'
 
 class Proposal < Hanami::Entity
   OPEN = 'open'
@@ -10,6 +11,7 @@ class Proposal < Hanami::Entity
     attribute :id, Types::Int
 
     attribute :organisation_id, Types::Int
+    attribute :team_id, Types::Int
 
     attribute :title, Types::String
     attribute :body, Types::String
