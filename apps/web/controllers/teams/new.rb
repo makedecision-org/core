@@ -7,7 +7,7 @@ module Web::Controllers::Teams
 
     def call(params)
       @team = Team.new
-      @organisation = org_operation.call(slug: params[:organisation_id]).value!
+      @organisation = org_operation.call(slug: params[:organisation_id]).value_or(Organisation.new)
     end
   end
 end
