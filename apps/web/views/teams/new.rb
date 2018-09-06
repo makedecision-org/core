@@ -23,9 +23,8 @@ module Web::Views::Teams
     end
 
     def form
-      # form_for :team, routes.organisation_teams_path(params[:organisation_id]), { method: :post } do
-      form_for :team, '#', { method: :post } do
-        input(name: 'organisation_id', type: 'hidden', value: organisation.id)
+      form_for :team, routes.organisation_teams_path(params[:organisation_id]), { method: :post } do
+        text_field :organisation_id, type: 'hidden', value: organisation.id
 
         div(class: 'form-group') do
           label :title

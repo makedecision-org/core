@@ -32,7 +32,7 @@
     .organisation__teams-title
       h3
         | Teams
-        = link_to '+', '#', class: 'btn btn-primary'
+        = link_to '+', routes.new_organisation_team_path(organisation.slug), class: 'btn btn-primary'
 
     .organisation__teams-list
       - organisation.teams.each do |team|
