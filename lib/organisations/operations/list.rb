@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Organisations
   module Operations
     class List < Libs::Operation

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Views::Teams
   class Show
     include Web::View

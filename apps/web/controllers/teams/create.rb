@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Controllers::Teams
   class Create
     include Web::Action
@@ -24,7 +26,7 @@ module Web::Controllers::Teams
           format: format, team: team, organisation: Organisation.new(id: payload[:organisation_id], slug: params[:organisation_id]),
           errors: result.failure, params: params
         )
-          # errors: result.failure, params: params, updated_csrf_token: set_csrf_token)
+        # errors: result.failure, params: params, updated_csrf_token: set_csrf_token)
       end
     end
   end

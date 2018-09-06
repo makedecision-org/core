@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Organisations
   module Operations
     class Read < Libs::Operation
@@ -10,4 +12,3 @@ module Organisations
     end
   end
 end
-

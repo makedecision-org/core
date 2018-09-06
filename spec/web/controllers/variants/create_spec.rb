@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Variants::Create, type: :action do
   let(:action) { described_class.new(operation: operation) }
   let(:params) { { organisation_id: 'test', proposal_id: 1, name: 'test variant', body: '' } }
@@ -5,7 +7,7 @@ RSpec.describe Web::Controllers::Variants::Create, type: :action do
   subject { action.call(params) }
 
   context 'when operation returns success result' do
-    let(:operation) { -> (proposal_id:, name:, body:) { Success(Variant.new) } }
+    let(:operation) { ->(proposal_id:, name:, body:) { Success(Variant.new) } }
 
     it { expect(subject).to redirect_to('/organisations/test/proposals/1') }
   end

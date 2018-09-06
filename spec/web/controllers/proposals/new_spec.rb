@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Proposals::New, type: :action do
   let(:action) { described_class.new(team_list_operation: operation) }
   let(:params) { { organisation_id: 'test' } }

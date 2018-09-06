@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Teams::Create, type: :action do
   let(:action) { described_class.new(operation: operation) }
   let(:params) { { organisation_id: 'test', team: { organisation_id: 1, body: 'test', title: 'frontend' } } }
@@ -5,7 +7,7 @@ RSpec.describe Web::Controllers::Teams::Create, type: :action do
   subject { action.call(params) }
 
   context 'when operation return success result' do
-    let(:operation) { -> (*_) { Success(Team.new(id: 1)) } }
+    let(:operation) { ->(*_) { Success(Team.new(id: 1)) } }
 
     it { expect(subject).to redirect_to('/organisations/test/teams/1') }
 
@@ -20,7 +22,7 @@ RSpec.describe Web::Controllers::Teams::Create, type: :action do
   end
 
   context 'when operation return failure result' do
-    let(:operation) { -> (*_) { Failure([]) } }
+    let(:operation) { ->(*_) { Failure([]) } }
 
     it { expect(subject).to be_success 200 }
   end
@@ -31,6 +33,6 @@ RSpec.describe Web::Controllers::Teams::Create, type: :action do
     let(:params) { { organisation_id: organisation.slug, team: { organisation_id: organisation.id, title: 'test', body: 'test' } } }
 
     it { expect(subject).to be_success 200 }
-    it { expect{ subject }.to change { TeamRepository.new.all.count }.by(1) }
+    it { expect { subject }.to change { TeamRepository.new.all.count }.by(1) }
   end
 end

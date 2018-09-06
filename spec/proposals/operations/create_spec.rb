@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Proposals::Operations::Create, type: :operation do
   include Dry::Monads::Result::Mixin
 
@@ -21,12 +23,12 @@ RSpec.describe Proposals::Operations::Create, type: :operation do
 
   context 'whith real dependencies' do
     let(:operation) { described_class.new }
-    let(:organisation) { Fabricate.create(:organisation, slug: 'test') } 
-    let(:team) { Fabricate.create(:team, organisation_id: organisation.id) } 
+    let(:organisation) { Fabricate.create(:organisation, slug: 'test') }
+    let(:team) { Fabricate.create(:team, organisation_id: organisation.id) }
 
     subject { operation.call(title: 'test title', body: 'test **body**', organisation_slug: organisation.slug, team_id: team.id) }
 
     it { expect(subject).to be_success }
-    it { expect{ subject }.to change { ProposalRepository.new.all.count }.by(1) }
+    it { expect { subject }.to change { ProposalRepository.new.all.count }.by(1) }
   end
 end

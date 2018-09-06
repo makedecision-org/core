@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './team'
 require_relative './proposal'
 

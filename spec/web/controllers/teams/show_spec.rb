@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Teams::Show, type: :action do
   let(:action) { described_class.new(operation: operation, proposals_list_operation: proposals_list_operation) }
   let(:params) { { organisation_id: 'test', id: 1 } }
@@ -5,8 +7,8 @@ RSpec.describe Web::Controllers::Teams::Show, type: :action do
   subject { action.call(params) }
 
   context 'when operation returns success result' do
-    let(:operation) { -> (org_slug:, id:) { Success(Team.new) } }
-    let(:proposals_list_operation) { -> (team_id:) { Success('open' => [Proposal.new]) } }
+    let(:operation) { ->(org_slug:, id:) { Success(Team.new) } }
+    let(:proposals_list_operation) { ->(team_id:) { Success('open' => [Proposal.new]) } }
 
     it { expect(subject).to be_success 200 }
 
@@ -18,8 +20,8 @@ RSpec.describe Web::Controllers::Teams::Show, type: :action do
   end
 
   context 'when operation returns failure result' do
-    let(:operation) { -> (org_slug:, id:) { Failure(:not_found) } }
-    let(:proposals_list_operation) { -> (team_id:) { Success('open' => [Proposal.new]) } }
+    let(:operation) { ->(org_slug:, id:) { Failure(:not_found) } }
+    let(:proposals_list_operation) { ->(team_id:) { Success('open' => [Proposal.new]) } }
 
     it do
       expect(proposals_list_operation).to_not receive(:call)

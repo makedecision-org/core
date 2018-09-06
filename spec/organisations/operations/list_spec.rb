@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Organisations::Operations::List, type: :operation do
   include Dry::Monads::Result::Mixin
 

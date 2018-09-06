@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Controllers::Comments
   class Create
     include Web::Action

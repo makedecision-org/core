@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Controllers::Proposals
   class Create
     include Web::Action
@@ -22,8 +24,8 @@ module Web::Controllers::Proposals
 
         # TODO: fix it
         self.body = Web::Views::Proposals::New.render(format: format, proposal: proposal, teams: [],
-          errors: result.failure, params: params)
-          # errors: result.failure, params: params, updated_csrf_token: set_csrf_token)
+                                                      errors: result.failure, params: params)
+        # errors: result.failure, params: params, updated_csrf_token: set_csrf_token)
       end
     end
   end

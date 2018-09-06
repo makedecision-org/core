@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Organisations::Show, type: :action do
   let(:action) { described_class.new(operation: operation) }
   let(:params) { { id: 'test' } }
@@ -5,7 +7,7 @@ RSpec.describe Web::Controllers::Organisations::Show, type: :action do
   subject { action.call(params) }
 
   context 'when operation returns success result' do
-    let(:operation) { -> (slug:) { Success(Organisation.new) } }
+    let(:operation) { ->(slug:) { Success(Organisation.new) } }
 
     it { expect(subject).to be_success 200 }
 
@@ -16,7 +18,7 @@ RSpec.describe Web::Controllers::Organisations::Show, type: :action do
   end
 
   context 'when operation returns failure result' do
-    let(:operation) { -> (slug:) { Failure(:not_found) } }
+    let(:operation) { ->(slug:) { Failure(:not_found) } }
 
     it { expect(subject).to redirect_to('/dashboard') }
   end

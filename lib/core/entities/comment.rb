@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Comment < Hanami::Entity
   attributes do
     attribute :id, Types::Int

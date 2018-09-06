@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Controllers::Variants
   class Create
     include Web::Action

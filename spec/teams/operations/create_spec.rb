@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Teams::Operations::Create, type: :operation do
   include Dry::Monads::Result::Mixin
 
@@ -24,6 +26,6 @@ RSpec.describe Teams::Operations::Create, type: :operation do
     subject { operation.call(title: 'test title', body: 'test **body**', organisation_id: organisation.id) }
 
     it { expect(subject).to be_success }
-    it { expect{ subject }.to change { TeamRepository.new.all.count }.by(1) }
+    it { expect { subject }.to change { TeamRepository.new.all.count }.by(1) }
   end
 end

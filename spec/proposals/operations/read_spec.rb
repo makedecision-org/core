@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Proposals::Operations::Read, type: :operation do
   include Dry::Monads::Result::Mixin
 

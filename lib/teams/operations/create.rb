@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Teams
   module Operations
     class Create < Libs::Operation
@@ -22,4 +24,3 @@ module Teams
     end
   end
 end
-

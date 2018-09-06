@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProposalRepository < Hanami::Repository
   associations do
     belongs_to :organisation

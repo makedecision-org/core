@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'kramdown'
 require 'rouge'
 require 'rinku'
 
 module Libs
   class MarkdownParser
-    CHECKBOX_REGEXP_CHECKED = %r(\K\[(x|X)\]\s?(.*)<)
-    CHECKBOX_REGEXP_UNCHECKED = %r(\K\[ \]\s?(.*)<)
+    CHECKBOX_REGEXP_CHECKED = /\K\[(x|X)\]\s?(.*)</
+    CHECKBOX_REGEXP_UNCHECKED = /\K\[ \]\s?(.*)</
 
     def initialize(kramdown = ::Kramdown::Document)
       @kramdown = kramdown

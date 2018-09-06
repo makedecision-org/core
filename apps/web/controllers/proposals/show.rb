@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Controllers::Proposals
   class Show
     include Web::Action

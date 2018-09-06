@@ -9,6 +9,7 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    ast (2.4.0)
     better_errors (2.4.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -143,6 +144,7 @@ GEM
       url_mount (~> 0.2.1)
     ice_nine (0.11.2)
     inflecto (0.0.2)
+    jaro_winkler (1.5.1)
     jquery-hanami (0.1.0)
       hanami-assets
     json (2.1.0)
@@ -153,12 +155,17 @@ GEM
     mini_portile2 (2.3.0)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
+    parallel (1.12.1)
+    parser (2.5.1.2)
+      ast (~> 2.4.0)
     pg (1.0.0)
+    powerpack (0.1.2)
     public_suffix (3.0.3)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rainbow (3.0.0)
     rake (12.3.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
@@ -204,6 +211,15 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    rubocop (0.58.2)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.5, != 2.5.1.1)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.10.0)
     sass (3.5.7)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -226,6 +242,7 @@ GEM
     temple (0.8.0)
     tilt (2.0.8)
     transproc (1.0.2)
+    unicode-display_width (1.4.0)
     url_mount (0.2.1)
       rack
     xpath (3.1.0)
@@ -255,6 +272,7 @@ DEPENDENCIES
   rouge (= 1.11.1)
   rspec
   rspec-hanami
+  rubocop
   sass
   shotgun
   simplecov

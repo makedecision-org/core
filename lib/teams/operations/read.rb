@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Teams
   module Operations
     class Read < Libs::Operation
@@ -10,4 +12,3 @@ module Teams
     end
   end
 end
-

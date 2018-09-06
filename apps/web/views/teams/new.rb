@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Views::Teams
   class New
     include Web::View
@@ -23,7 +25,7 @@ module Web::Views::Teams
     end
 
     def form
-      form_for :team, routes.organisation_teams_path(params[:organisation_id]), { method: :post } do
+      form_for :team, routes.organisation_teams_path(params[:organisation_id]), method: :post do
         text_field :organisation_id, type: 'hidden', value: organisation.id
 
         div(class: 'form-group') do

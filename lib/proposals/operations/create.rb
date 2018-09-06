@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Proposals
   module Operations
     class Create < Libs::Operation

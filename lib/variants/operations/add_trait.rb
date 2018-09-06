@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Variants
   module Operations
     class AddTrait < Libs::Operation
@@ -7,12 +9,12 @@ module Variants
         # TODO: valodation
 
         variant = case trait_type.to_sym
-        when :positive
-          variant_repository.add_positive_trait(variant_id, value)
-        when :negative
-          variant_repository.add_negative_trait(variant_id, value)
-        else
-          fail
+                  when :positive
+                    variant_repository.add_positive_trait(variant_id, value)
+                  when :negative
+                    variant_repository.add_negative_trait(variant_id, value)
+                  else
+                    raise
         end
 
         Success(variant)

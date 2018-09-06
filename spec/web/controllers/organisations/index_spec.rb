@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Organisations::Index, type: :action do
   let(:action) { described_class.new(operation: operation) }
   let(:params) { Hash[] }

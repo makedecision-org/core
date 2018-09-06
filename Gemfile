@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 gem 'rake'
 
 # http layer
-gem 'hanami',       '1.2.0'
+gem 'hanami', '1.2.0'
 gem 'puma', '~> 3.11.0'
 
 # persistance layer
@@ -18,28 +20,32 @@ gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
 gem 'dry-monads', '~> 1.0.0'
 
 # templates
-gem 'slim'
-gem 'sass'
 gem 'hanami-bootstrap'
 gem 'jquery-hanami'
+gem 'sass'
+gem 'slim'
 
 # markdown
 gem 'kramdown', '1.13.1'
-gem 'rouge', '1.11.1'
 gem 'rinku'
+gem 'rouge', '1.11.1'
 
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
-  gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
+  gem 'shotgun', platforms: :ruby
 end
 
 group :test, :development do
   gem 'dotenv', '~> 2.4'
 
+  # data generation and cleanup
   gem 'database_cleaner'
   gem 'hanami-fabrication'
+
+  # style check
+  gem 'rubocop', require: false
 end
 
 group :test do

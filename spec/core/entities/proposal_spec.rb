@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Proposal, type: :entity do
   describe '#open?' do
     [

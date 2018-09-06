@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Organisation, type: :entity do
   describe '#public?' do
     subject { organisation.public? }

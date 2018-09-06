@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Variants::Operations::AddTrait, type: :operation do
   include Dry::Monads::Result::Mixin
 

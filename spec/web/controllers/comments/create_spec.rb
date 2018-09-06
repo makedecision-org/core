@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Comments::Create, type: :action do
   let(:action) { described_class.new(operation: operation) }
   let(:params) { { organisation_id: 'test', proposal_id: 1, body: 'new comment' } }
@@ -5,13 +7,13 @@ RSpec.describe Web::Controllers::Comments::Create, type: :action do
   subject { action.call(params) }
 
   context 'when operation returns success result' do
-    let(:operation) { -> (proposal_id:, body:) { Success(Comment.new(proposal_id: 1)) } }
+    let(:operation) { ->(proposal_id:, body:) { Success(Comment.new(proposal_id: 1)) } }
 
     it { expect(subject).to redirect_to('/organisations/test/proposals/1') }
   end
 
   xcontext 'when operation returns failure result' do
-    let(:operation) { -> (proposal_id:, body:) { Failure(Comment.new(proposal_id: 1)) } }
+    let(:operation) { ->(proposal_id:, body:) { Failure(Comment.new(proposal_id: 1)) } }
 
     it { expect(subject).to redirect_to('/organisations/test/proposals/1') }
   end

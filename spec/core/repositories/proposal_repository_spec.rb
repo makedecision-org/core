@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe ProposalRepository, type: :repository do
   let(:repo) { described_class.new }
 
@@ -40,7 +42,7 @@ RSpec.describe ProposalRepository, type: :repository do
         Fabricate.create(:proposal, status: 'approved')
       end
 
-      it { expect(subject.keys).to eq ['open', 'approved'] }
+      it { expect(subject.keys).to eq %w[open approved] }
       it { expect(subject['open'].count).to eq 1 }
       it { expect(subject['approved'].count).to eq 1 }
     end

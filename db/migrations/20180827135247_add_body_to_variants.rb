@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Hanami::Model.migration do
   change do
     add_column :variants, :body, String, text: true

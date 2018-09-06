@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web
   module Views
     module BreadcrumbGenerator
@@ -11,7 +13,7 @@ module Web
 
               last_item = breadcrumbs[-1]
 
-              li(class: 'breadcrumb-item active', 'aria-current' => "page") { text(last_item.first) }
+              li(class: 'breadcrumb-item active', 'aria-current' => 'page') { text(last_item.first) }
             end
           end
         end

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module Proposals
   module Operations
     class UpdateStatus < Libs::Operation
       include Import[proposal_repository: 'repositories.proposal']
 
-      ALLOWED_STATUSES = [Proposal::APPROVED, Proposal::DENIED]
+      ALLOWED_STATUSES = [Proposal::APPROVED, Proposal::DENIED].freeze
 
       def call(id:, **payload)
         payload = payload.slice(:status, :conclusions)
