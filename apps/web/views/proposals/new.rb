@@ -37,13 +37,14 @@ module Web::Views::Proposals
 
           div(class: 'form-group proposal-form__item') do
             label :title
-            text_field :title, class: 'form-control'
+            text_field :title, class: 'form-control', placeholder: 'What is the topic you want to discuss?'
           end
         end
 
         div(class: 'form-group') do
           label :body
-          text_area :body, class: 'form-control', placeholder: 'Description'
+          text_area :body, class: 'form-control',
+            placeholder: 'Give enough background information for the team and organisation to have a productive discussion. This can be updated as the discussion progresses'
         end
 
         submit 'Suggest', class: 'btn btn-primary'

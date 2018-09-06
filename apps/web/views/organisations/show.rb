@@ -17,7 +17,7 @@ module Web::Views::Organisations
         div(class: 'dropdown-divider')
 
         li { link_to 'Proposal', routes.new_organisation_proposal_path(organisation.slug) }
-        li { link_to 'Team', routes.new_organisation_team_path(params[:organisation_id]) }
+        li { link_to 'Team', routes.new_organisation_team_path(organisation.slug) }
         li { link_to 'Members', '#' }
         div(class: 'dropdown-divider')
       end

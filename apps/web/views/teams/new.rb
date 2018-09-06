@@ -29,13 +29,13 @@ module Web::Views::Teams
         text_field :organisation_id, type: 'hidden', value: organisation.id
 
         div(class: 'form-group') do
-          label :title
+          label :team_title
           text_field :title, class: 'form-control'
         end
 
         div(class: 'form-group') do
           label :body
-          text_area :body, class: 'form-control', placeholder: 'Description'
+          text_area :body, class: 'form-control', placeholder: 'Describe the purpose of your team so your group members know why they are here.'
         end
 
         submit 'Create', class: 'btn btn-primary'
