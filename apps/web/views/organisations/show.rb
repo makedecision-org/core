@@ -4,6 +4,16 @@ module Web::Views::Organisations
   class Show
     include Web::View
 
+    PROPOSAL_STATUS_CLASSES = {
+      'open' => 'bg-warning',
+      'approved' => 'bg-success',
+      'denied' => 'bg-danger'
+    }
+
+    def proposal_status_classes(proposal)
+      PROPOSAL_STATUS_CLASSES[proposal.status]
+    end
+
     def breadcrumb
       breadcrumb_generator(
         ['Dashboard', '/dashboard'],
