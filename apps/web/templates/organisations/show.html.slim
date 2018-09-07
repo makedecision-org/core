@@ -22,11 +22,11 @@
 
     h4 Team name here
     - organisation.proposals.each do |proposal|
-      .card
+      div class="card #{proposal.status}-proposal"
         .card-body
           .card-title
             a href=routes.organisation_proposal_path(organisation.slug, proposal.id)
-              h5 #{proposal.title} (#{proposal.status})
+              h5 = proposal.title
 
   .organisation__teams.nav-target.d-none
     .organisation__teams-title

@@ -18,28 +18,28 @@
 
   .team__open-proposals.nav-target
     - (proposals['open'] || []).each do |proposal|
-      .card
+      div class="card #{proposal.status}-proposal"
         .card-body
           .card-title
             a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
-              h5 #{proposal.title}
+              h5 = proposal.title
 
   .team__approved-proposals.nav-target.d-none
     - (proposals['approved'] || []).each do |proposal|
-      .card
+      div class="card #{proposal.status}-proposal"
         .card-body
           .card-title
             a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
-              h5 #{proposal.title}
+              h5 = proposal.title
           p.card-text = proposal.conclusions
 
   .team__denied-proposals.nav-target.d-none
     - (proposals['denied'] || []).each do |proposal|
-      .card
+      div class="card #{proposal.status}-proposal"
         .card-body
           .card-title
             a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
-              h5 #{proposal.title}
+              h5 = proposal.title
           p.card-text = proposal.conclusions
 
   .team__members.nav-target.d-none

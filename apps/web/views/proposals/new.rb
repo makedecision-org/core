@@ -35,7 +35,7 @@ module Web::Views::Proposals
 
           span '/', class: 'proposal-form__path-delimeter'
 
-          div(class: 'form-group proposal-form__item') do
+          div(class: 'form-group proposal-form__item proposal-form__title') do
             label :title
             text_field :title, class: 'form-control', placeholder: 'What is the topic you want to discuss?'
           end

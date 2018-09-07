@@ -69,6 +69,13 @@
   }
 }
 
+.approved-proposal {
+  background-color: #e5ffe5;
+}
+.denied-proposal {
+  background-color: #ffe5e5;
+}
+
 .variants {
   margin: 5% 0;
 
@@ -90,6 +97,10 @@
 
   .proposal-form__item {
     min-width: 20%;
+  }
+
+  .proposal-form__title {
+    min-width: 75%;
   }
 
   .proposal-form__path-delimeter {
@@ -427,4 +438,13 @@ body {
   background-color: #f6f9fa;
 
   // color: #6c757d;
+}
+
+h1 {
+  a {
+    color: #0056b3;
+    text-decoration: underline;
+
+    &:hover { color: #0056b3; }
+  }
 }
