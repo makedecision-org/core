@@ -25,7 +25,7 @@
           .card-title
             a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
               h5 = proposal.title
-          p.card-text Opened #{RelativeTime.in_words(proposal.created_at)}
+          = card_happened_at_tag('Opened', proposal.created_at)
 
   .team__approved-proposals.nav-target.d-none
     - (proposals['approved'] || []).each do |proposal|
@@ -36,8 +36,8 @@
           .card-title
             a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
               h5 = proposal.title
-          p.card-text Opened #{RelativeTime.in_words(proposal.created_at)}
-          p.card-text Approved #{RelativeTime.in_words(proposal.created_at)}
+          = card_happened_at_tag('Opened', proposal.created_at)
+          = card_happened_at_tag('Approved', proposal.created_at)
           p.card-text = proposal.conclusions
 
   .team__denied-proposals.nav-target.d-none
@@ -49,8 +49,8 @@
           .card-title
             a href=routes.organisation_proposal_path(params[:organisation_id], proposal.id)
               h5 = proposal.title
-          p.card-text Opened #{RelativeTime.in_words(proposal.created_at)}
-          p.card-text Denied #{RelativeTime.in_words(proposal.created_at)}
+          = card_happened_at_tag('Opened', proposal.created_at)
+          = card_happened_at_tag('Denied', proposal.created_at)
           p.card-text = proposal.conclusions
 
   .team__members.nav-target.d-none
