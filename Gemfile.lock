@@ -170,6 +170,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    relative_time (1.0.0)
     rinku (2.0.4)
     rom (3.3.3)
       concurrent-ruby (~> 1.0)
@@ -268,6 +269,7 @@ DEPENDENCIES
   pg
   puma (~> 3.11.0)
   rake
+  relative_time
   rinku
   rouge (= 1.11.1)
   rspec

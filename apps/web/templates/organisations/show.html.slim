@@ -33,6 +33,8 @@
                 a href=routes.organisation_proposal_path(organisation.slug, proposal.id)
                   h5 = proposal.title
 
+              p.card-text Opened #{RelativeTime.in_words(proposal.created_at)}
+
   .organisation__teams.nav-target.d-none
     .organisation__teams-title
       h3

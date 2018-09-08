@@ -24,6 +24,7 @@ gem 'hanami-bootstrap'
 gem 'jquery-hanami'
 gem 'sass'
 gem 'slim'
+gem 'relative_time'
 
 # markdown
 gem 'kramdown', '1.13.1'
