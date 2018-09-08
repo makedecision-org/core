@@ -44,6 +44,23 @@
   }
 }
 
+.organisation__proposals {
+  .organisation__team-proposals {
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #E9EEF2;
+
+    h4 {
+      margin: 0 0 1rem;
+    }
+
+    .card {
+      margin: 0.75rem 0;
+    }
+  }
+}
+
 
 // proposals
 
@@ -81,13 +98,6 @@
   .proposal__actions {
     margin: 5% 0;
   }
-}
-
-.approved-proposal {
-  background-color: #e5ffe5;
-}
-.denied-proposal {
-  background-color: #ffe5e5;
 }
 
 .variants {

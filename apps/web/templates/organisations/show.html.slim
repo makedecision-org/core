@@ -20,15 +20,18 @@
       | Proposals
       = link_to '+', routes.new_organisation_proposal_path(organisation.slug), class: 'btn btn-primary'
 
-    h4 Team name here
-    - organisation.proposals.each do |proposal|
-      .card
-        .progress
-          div class="progress-bar #{proposal_status_classes(proposal)}" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-        .card-body
-          .card-title
-            a href=routes.organisation_proposal_path(organisation.slug, proposal.id)
-              h5 = proposal.title
+    - organisation.teams.select { |t| t.proposals.any? }.each do |team|
+      .organisation__team-proposals
+        h4 = team.title
+
+        - team.proposals.each do |proposal|
+          .card
+            .progress
+              div class="progress-bar #{proposal_status_classes(proposal)}" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+            .card-body
+              .card-title
+                a href=routes.organisation_proposal_path(organisation.slug, proposal.id)
+                  h5 = proposal.title
 
   .organisation__teams.nav-target.d-none
     .organisation__teams-title
