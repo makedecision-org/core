@@ -86,7 +86,15 @@
   padding: 3% 7%;
 
   .proposal__title {
-    margin: 0 0 5%;
+    margin: 0 0 1%;
+  }
+
+  .proposal__meta {
+    margin: 0 0 4%;
+
+    .proposal__opened-information {
+      color: #6c757d;
+    }
   }
 
   .proposal__body {

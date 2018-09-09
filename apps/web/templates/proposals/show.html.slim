@@ -2,6 +2,11 @@
   .proposal__title
     h1 = proposal.title
 
+  .proposal__meta
+    .proposal__opened-information
+      | Opened #{RelativeTime.in_words(proposal.created_at)}
+
+
   .proposal__body = proposal_body
 
   .variants
