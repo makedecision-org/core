@@ -6,6 +6,7 @@
     .proposal__opened-information
       | Opened #{RelativeTime.in_words(proposal.created_at)}
 
+    span aria-hidden="true" ·
 
   .proposal__body = proposal_body
 

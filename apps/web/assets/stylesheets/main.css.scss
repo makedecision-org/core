@@ -91,9 +91,16 @@
 
   .proposal__meta {
     margin: 0 0 4%;
+    color: #6c757d;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    span {
+      margin: 0 0.4rem;
+    }
 
     .proposal__opened-information {
-      color: #6c757d;
     }
   }
 
