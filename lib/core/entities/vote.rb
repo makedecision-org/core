@@ -1,4 +1,8 @@
 require_relative './poll'
+#
+# Hack for reqursion entity loading
+class VoteChoice < Hanami::Entity
+end
 
 class Vote < Hanami::Entity
   attributes do
@@ -9,6 +13,8 @@ class Vote < Hanami::Entity
 
     attribute :reason,     Types::String
     attribute :raw_reason, Types::String
+
+    attribute :vote_choices, Types::Collection(VoteChoice)
 
     attribute :created_at, Types::Time
     attribute :updated_at, Types::Time
