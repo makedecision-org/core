@@ -3,6 +3,8 @@
 require_relative './proposal'
 
 class Poll < Hanami::Entity
+  TYPES = %i[multipy]
+
   attributes do
     attribute :id, Types::Int
     attribute :proposal_id, Types::Int
@@ -12,7 +14,7 @@ class Poll < Hanami::Entity
     attribute :description,     Types::String
     attribute :raw_description, Types::String
 
-    attribute :type,            Types::String
+    attribute :type,      Types::String
     attribute :anonymous, Types::Bool
 
     attribute :vote_data, Types::Collection(Types::Coercible::Hash)

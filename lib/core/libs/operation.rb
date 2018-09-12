@@ -26,6 +26,7 @@ module Libs
   class Operation
     include Dry::Monads::Result::Mixin
     include Dry::Monads::Do.for(:call)
+    Dry::Validation.load_extensions(:monads)
 
     def call(*)
       raise NotImplementedError
