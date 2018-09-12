@@ -478,6 +478,7 @@
   padding-bottom: 75px;
   background-color: #1f1f1f;
 
+  a { color: #fff; }
 
   .col {
     display: inline;
@@ -511,6 +512,8 @@
         li {
           display: block;
           margin-bottom: 10px;
+
+          a { color: #fff; }
         }
       }
     }
