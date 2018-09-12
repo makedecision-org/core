@@ -5,7 +5,7 @@ module Polls
     class Create < Libs::Operation
       # include Import[]
 
-      def call()
+      def call
         Success(Poll.new)
       end
     end

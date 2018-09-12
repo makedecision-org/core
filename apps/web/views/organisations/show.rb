@@ -8,7 +8,7 @@ module Web::Views::Organisations
       'open' => 'bg-warning',
       'approved' => 'bg-success',
       'denied' => 'bg-danger'
-    }
+    }.freeze
 
     def proposal_status_classes(proposal)
       PROPOSAL_STATUS_CLASSES[proposal.status]

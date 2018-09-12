@@ -22,9 +22,9 @@ gem 'dry-monads', '~> 1.0.0'
 # templates
 gem 'hanami-bootstrap'
 gem 'jquery-hanami'
+gem 'relative_time'
 gem 'sass'
 gem 'slim'
-gem 'relative_time'
 
 # markdown
 gem 'kramdown', '1.13.1'

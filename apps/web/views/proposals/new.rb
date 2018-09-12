@@ -44,7 +44,7 @@ module Web::Views::Proposals
         div(class: 'form-group') do
           label :body
           text_area :body, class: 'form-control',
-            placeholder: 'Give enough background information for the team and organisation to have a productive discussion. This can be updated as the discussion progresses'
+                           placeholder: 'Give enough background information for the team and organisation to have a productive discussion. This can be updated as the discussion progresses'
         end
 
         submit 'Suggest', class: 'btn btn-primary'

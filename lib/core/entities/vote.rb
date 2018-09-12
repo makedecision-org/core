@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './poll'
 #
 # Hack for reqursion entity loading
