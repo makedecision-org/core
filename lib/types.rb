@@ -11,4 +11,6 @@ module Types
   ProposalStatuses = String.constructor(proc { |value| value.to_s.downcase })
                            .default('open')
                            .enum('open', 'approved', 'denied')
+
+  PollTypes = String.constructor(proc { |value| value.to_s.downcase }).enum('multipy')
 end

@@ -16,11 +16,11 @@ RSpec.describe Polls::Operations::Create, type: :operation do
         proposal_id: 11,
         title: 'test poll',
         description: 'something here',
-        type: 'polltype',
+        type: 'multipy',
         variants: [
           { title: 'variant #1' },
-          { title: 'variant #2' },
-          { title: 'variant #3' }
+          { title: 'variant #2', prioroty: 2 },
+          { title: 'variant #3', prioroty: 10 }
         ]
       }
     end
@@ -29,16 +29,16 @@ RSpec.describe Polls::Operations::Create, type: :operation do
 
     it 'persist poll data' do
       expect(poll_repo).to receive(:create).with(
-        proposal_id: 11, title: 'test poll', description: 'something here'
+        proposal_id: 11, type: 'multipy', title: 'test poll', description: 'something here'
       ).and_return(Poll.new(id: 1))
 
       expect(subject).to be_success
     end
 
     it 'persist poll variant data' do
-      expect(poll_variant_repo).to receive(:create).exactly(1).times.with(poll_id: 1, title: 'variant #1')
-      expect(poll_variant_repo).to receive(:create).exactly(1).times.with(poll_id: 1, title: 'variant #2')
-      expect(poll_variant_repo).to receive(:create).exactly(1).times.with(poll_id: 1, title: 'variant #3')
+      expect(poll_variant_repo).to receive(:create).exactly(1).times.with(poll_id: 1, title: 'variant #1', prioroty: 1)
+      expect(poll_variant_repo).to receive(:create).exactly(1).times.with(poll_id: 1, title: 'variant #2', prioroty: 2)
+      expect(poll_variant_repo).to receive(:create).exactly(1).times.with(poll_id: 1, title: 'variant #3', prioroty: 10)
 
       expect(subject).to be_success
     end
@@ -66,12 +66,13 @@ RSpec.describe Polls::Operations::Create, type: :operation do
     let(:payload) do
       {
         proposal_id: proposal.id,
+        type: 'multipy',
         title: 'test poll',
         description: 'something here',
         variants: [
           { title: 'variant #1' },
-          { title: 'variant #2' },
-          { title: 'variant #3' }
+          { title: 'variant #2', prioroty: 2 },
+          { title: 'variant #3', prioroty: 10 }
         ]
       }
     end

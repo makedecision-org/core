@@ -12,9 +12,9 @@ module Polls
 
       VALIDATOR = Dry::Validation.JSON do
         required(:proposal_id, Types::Int).filled
+        required(:type, Types::PollTypes).filled(included_in?: Poll::TYPES)
         required(:title, Types::String).filled
         optional(:description, Types::String).filled
-        required(:title, Types::String).filled(in: Poll::TYPES)
 
         required(:variants).each do
           schema do
@@ -34,12 +34,14 @@ module Polls
 
     private
 
-      def create_poll(proposal_id:, title:, description:, **payload)
-        Success(poll_repo.create(proposal_id: proposal_id, title: title, description: description))
+      def create_poll(proposal_id:, type:, title:, description:, **payload)
+        Success(poll_repo.create(
+          proposal_id: proposal_id, type: type, title: title, description: description
+        ))
       end
 
       def create_poll_variants(poll_id:, variants:, **payload)
-        Success(variants.map { |variant| poll_variant_repo.create(poll_id: poll_id, **variant) })
+        Success(variants.map { |variant| poll_variant_repo.create(poll_id: poll_id, prioroty: 1, **variant) })
       end
     end
   end
