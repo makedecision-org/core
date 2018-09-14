@@ -3,7 +3,7 @@
 require_relative './proposal'
 
 class Poll < Hanami::Entity
-  TYPES = %w[multipy]
+  TYPES = %w[time check ranked agreement]
 
   attributes do
     attribute :id, Types::Int
