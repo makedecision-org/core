@@ -16,7 +16,7 @@ RSpec.describe Polls::Operations::Create, type: :operation do
         proposal_id: 11,
         title: 'test poll',
         description: 'something here',
-        type: 'multipy',
+        type: 'check',
         variants: [
           { title: 'variant #1' },
           { title: 'variant #2', prioroty: 2 },
@@ -29,7 +29,7 @@ RSpec.describe Polls::Operations::Create, type: :operation do
 
     it 'persist poll data' do
       expect(poll_repo).to receive(:create).with(
-        proposal_id: 11, type: 'multipy', title: 'test poll', description: 'something here'
+        proposal_id: 11, type: 'check', title: 'test poll', description: 'something here'
       ).and_return(Poll.new(id: 1))
 
       expect(subject).to be_success
@@ -66,7 +66,7 @@ RSpec.describe Polls::Operations::Create, type: :operation do
     let(:payload) do
       {
         proposal_id: proposal.id,
-        type: 'multipy',
+        type: 'check',
         title: 'test poll',
         description: 'something here',
         variants: [

@@ -1,5 +1,51 @@
 .new-poll
   .new-poll__title
-    h1 Create a new poll for #{link_to proposal.title, '#'}
+    h1 Create a new poll
 
     hr
+
+    ul#pills-tab.nav.nav-pills.mb-3.nav-fill[role="tablist"]
+      li.nav-item
+        a#pills-choice-tab.nav-link.active[data-toggle="pill" href="#pills-choice" role="tab" aria-controls="pills-choice" aria-selected="true"]
+          | Choice poll
+      li.nav-item
+        a#pills-agreement-poll-tab.nav-link[data-toggle="pill" href="#pills-agreement-poll" role="tab" aria-controls="pills-agreement-poll" aria-selected="false"]
+          | Agreement poll
+      li.nav-item
+        a#pills-check-poll-tab.nav-link[data-toggle="pill" href="#pills-check-poll" role="tab" aria-controls="pills-check-poll" aria-selected="false"]
+          | Check poll
+      li.nav-item
+        a#pills-time-poll-tab.nav-link[data-toggle="pill" href="#pills-time-poll" role="tab" aria-controls="pills-time-poll" aria-selected="false"]
+          | Time poll
+
+    #pills-tabContent.tab-content
+      #pills-choice.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="pills-choice-tab"]
+        p Offer a choice. Enter a question and provide some options for people to choose from. People vote for one or more options - depending on if you allow single or multiple choice.
+
+        hr
+
+        = form
+
+      #pills-time-poll.tab-pane.fade[role="tabpanel" aria-labelledby="pills-time-poll-tab"]
+        p Find a time to meet
+
+        hr
+
+        div
+          | Time poll form
+
+      #pills-agreement-poll.tab-pane.fade[role="tabpanel" aria-labelledby="pills-agreement-poll-tab"]
+        p Seek collective agreement
+
+        hr
+
+        div
+          | Agreement poll form
+
+      #pills-check-poll.tab-pane.fade[role="tabpanel" aria-labelledby="pills-check-poll-tab"]
+        p Make an offer or ask people to take some action. Think of it as the online equilavent of asking a room of people “Please raise your hand if you…”.
+
+        hr
+
+        div
+          | Check poll form

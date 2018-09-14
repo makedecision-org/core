@@ -61,6 +61,21 @@
   }
 }
 
+// polls
+
+.new-poll {
+  width: 90%;
+  height: 100%;
+  margin: 3% auto 0;
+  box-shadow: 0 0 3px rgba(33,33,33,.2);
+  background-color: #fff;
+  padding: 3% 7%;
+
+  .new-poll__title {
+    margin: 0 0 1%;
+  }
+}
+
 
 // proposals
 
