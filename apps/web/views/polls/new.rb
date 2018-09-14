@@ -12,7 +12,7 @@ module Web::Views::Polls
       )
     end
 
-    def form
+    def choice_form
       form_for :poll, routes.organisation_proposal_polls_path(params[:organisation_id], proposal.id), method: :post do
         div(class: 'form-group') do
           label :title
