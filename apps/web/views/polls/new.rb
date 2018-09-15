@@ -22,5 +22,16 @@ module Web::Views::Polls
         submit 'Suggest', class: 'btn btn-primary'
       end
     end
+
+    def agreement_form
+      form_for :poll, routes.organisation_proposal_polls_path(params[:organisation_id], proposal.id), method: :post do
+        div(class: 'form-group') do
+          label :title
+          text_field :title, class: 'form-control', placeholder: 'What is the topic you want to poll?'
+        end
+
+        submit 'Suggest', class: 'btn btn-primary'
+      end
+    end
   end
 end
