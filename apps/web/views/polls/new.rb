@@ -19,6 +19,12 @@ module Web::Views::Polls
           text_field :title, class: 'form-control', placeholder: 'What is the topic you want to poll?'
         end
 
+        div(class: 'form-group') do
+          label :variants
+          text_field :title, class: 'form-control', value: 'Something'
+          button 'Add more', type: :button, class: 'btn btn-outline-primary'
+        end
+
         submit 'Suggest', class: 'btn btn-primary'
       end
     end
@@ -28,6 +34,14 @@ module Web::Views::Polls
         div(class: 'form-group') do
           label :title
           text_field :title, class: 'form-control', placeholder: 'What is the topic you want to poll?'
+        end
+
+        div(class: 'form-group') do
+          label :variants
+          text_field :title, readonly: '', class: 'form-control', value: 'Agree'
+          text_field :title, readonly: '', class: 'form-control', value: 'Disagree'
+          text_field :title, readonly: '', class: 'form-control', value: 'Block'
+          text_field :title, readonly: '', class: 'form-control', value: 'Abstain'
         end
 
         submit 'Suggest', class: 'btn btn-primary'
