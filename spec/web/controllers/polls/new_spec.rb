@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Polls::New, type: :action do
   let(:action) { described_class.new }
   let(:params) { Hash[] }

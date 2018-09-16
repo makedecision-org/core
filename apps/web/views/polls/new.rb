@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Views::Polls
   class New
     include Web::View

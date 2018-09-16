@@ -32,15 +32,15 @@ module Polls
         Success(poll)
       end
 
-    private
+      private
 
-      def create_poll(proposal_id:, type:, title:, description:, **payload)
+      def create_poll(proposal_id:, type:, title:, description:, **_payload)
         Success(poll_repo.create(
-          proposal_id: proposal_id, type: type, title: title, description: description
-        ))
+                  proposal_id: proposal_id, type: type, title: title, description: description
+                ))
       end
 
-      def create_poll_variants(poll_id:, variants:, **payload)
+      def create_poll_variants(poll_id:, variants:, **_payload)
         Success(variants.map { |variant| poll_variant_repo.create(poll_id: poll_id, prioroty: 1, **variant) })
       end
     end

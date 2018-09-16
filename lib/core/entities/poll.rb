@@ -15,7 +15,7 @@ require_relative './proposal'
 #
 
 class Poll < Hanami::Entity
-  TYPES = %w[choice agreement check time]
+  TYPES = %w[choice agreement check time].freeze
 
   attributes do
     attribute :id, Types::Int
