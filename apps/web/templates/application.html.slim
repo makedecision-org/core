@@ -23,5 +23,11 @@ html
         $('#sidebarCollapse').on('click', function () {
           $('#sidebar').toggleClass('active');
         });
+
+        $('#add-poll-variant').on('click', function () {
+          $('.new-poll__variants .form-control:last').after(
+            "<input type=\"text\" name=\"poll[variants]\" id=\"poll-variants\" value=\"Something\" class=\"form-control\">"
+          )
+        });
       });
 

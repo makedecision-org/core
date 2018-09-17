@@ -21,10 +21,13 @@ module Web::Views::Polls
           text_field :title, class: 'form-control', placeholder: 'What is the topic you want to poll?'
         end
 
-        div(class: 'form-group') do
+        div(class: 'form-group new-poll__variants') do
           label :variants
-          text_field :title, class: 'form-control', value: 'Something'
-          button 'Add more', type: :button, class: 'btn btn-outline-primary'
+          text_field :variants, class: 'form-control', value: 'Something'
+        end
+
+        div(class: 'form-group') do
+          button 'Add more', type: :button, class: 'btn btn-outline-primary', id: 'add-poll-variant'
         end
 
         submit 'Suggest', class: 'btn btn-primary'
