@@ -11,6 +11,8 @@
 
   .proposal__body = proposal_body
 
+  hr
+
   .variants
     - if proposal.open?
       .add_variant = add_variant_form(org_id: params[:organisation_id])
@@ -39,11 +41,18 @@
               - variant.negative_traits.each do |trait|
                 li = delete_negative_trait_form(proposal, variant, trait[:value], org_id: params[:organisation_id])
 
+  hr
+
   .decisions
+    h2 Decisions
+
     - if proposal.open?
       = link_to 'Suggest poll', routes.new_organisation_proposal_poll_path(params[:organisation_id], proposal.id), class: 'btn btn-outline-secondary'
 
-    h2 What framework we should choose?
+    - proposal.polls.each do |poll|
+      div = poll.title
+
+    h3 What framework we should choose?
 
     form action="#" method="POST"
       .form-check
@@ -57,9 +66,13 @@
       br
       input type="submit" value="Vote" name="vote" class="btn btn-success"
 
+  hr
+
   - if proposal.open?
     .proposal__actions
       = update_proposal_status_form(org_id: params[:organisation_id])
+
+    hr
 
   .thread
     h2 Thread

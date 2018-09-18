@@ -7,6 +7,9 @@ require_relative './comment'
 class Team < Hanami::Entity
 end
 
+class Poll < Hanami::Entity
+end
+
 class Proposal < Hanami::Entity
   OPEN = 'open'
   APPROVED = 'approved'
@@ -30,6 +33,7 @@ class Proposal < Hanami::Entity
     attribute :team, Types::Entity(Team)
     attribute :variants, Types::Collection(Variant)
     attribute :comments, Types::Collection(Comment)
+    attribute :polls, Types::Collection(Poll)
 
     attribute :created_at, Types::Time
     attribute :updated_at, Types::Time
