@@ -40,6 +40,9 @@
                 li = delete_negative_trait_form(proposal, variant, trait[:value], org_id: params[:organisation_id])
 
   .decisions
+    - if proposal.open?
+      = link_to 'Suggest poll', routes.new_organisation_proposal_poll_path(params[:organisation_id], proposal.id), class: 'btn btn-outline-secondary'
+
     h2 What framework we should choose?
 
     form action="#" method="POST"

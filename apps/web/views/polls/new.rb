@@ -30,7 +30,7 @@ module Web::Views::Polls
           button 'Add more', type: :button, class: 'btn btn-outline-primary', id: 'add-poll-variant'
         end
 
-        submit 'Suggest', class: 'btn btn-primary'
+        submit 'Suggest', class: 'btn btn-primary disabled', disabled: ''
       end
     end
 
@@ -49,7 +49,7 @@ module Web::Views::Polls
           text_field :title, readonly: '', class: 'form-control', value: 'Abstain'
         end
 
-        submit 'Suggest', class: 'btn btn-primary'
+        submit 'Suggest', class: 'btn btn-primary disabled', disabled: ''
       end
     end
   end
