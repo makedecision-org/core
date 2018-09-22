@@ -23,7 +23,10 @@ module Web::Views::Polls
 
         div(class: 'form-group new-poll__variants') do
           label :variants
-          text_field :variants, class: 'form-control', value: 'Something'
+
+          fields_for :variants do
+            text_field :title, class: 'form-control', value: 'Something'
+          end
         end
 
         div(class: 'form-group') do
@@ -43,10 +46,13 @@ module Web::Views::Polls
 
         div(class: 'form-group') do
           label :variants
-          text_field :title, readonly: '', class: 'form-control', value: 'Agree'
-          text_field :title, readonly: '', class: 'form-control', value: 'Disagree'
-          text_field :title, readonly: '', class: 'form-control', value: 'Block'
-          text_field :title, readonly: '', class: 'form-control', value: 'Abstain'
+
+          fields_for :variants do
+            text_field :title, readonly: '', class: 'form-control', value: 'Agree'
+            text_field :title, readonly: '', class: 'form-control', value: 'Disagree'
+            text_field :title, readonly: '', class: 'form-control', value: 'Block'
+            text_field :title, readonly: '', class: 'form-control', value: 'Abstain'
+          end
         end
 
         submit 'Suggest', class: 'btn btn-primary disabled', disabled: ''
