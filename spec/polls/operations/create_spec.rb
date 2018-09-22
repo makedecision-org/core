@@ -17,7 +17,7 @@ RSpec.describe Polls::Operations::Create, type: :operation do
         title: 'test poll',
         description: 'something here',
         type: 'check',
-        variants: [
+        poll_variants: [
           { title: 'variant #1' },
           { title: 'variant #2', prioroty: 2 },
           { title: 'variant #3', prioroty: 10 }
@@ -48,7 +48,7 @@ RSpec.describe Polls::Operations::Create, type: :operation do
     let(:payload) do
       {
         description: 'something here',
-        variants: [
+        poll_variants: [
           { title: 'variant #1' },
           { title: 'variant #2' },
           { title: 'variant #3' }
@@ -69,7 +69,7 @@ RSpec.describe Polls::Operations::Create, type: :operation do
         type: 'check',
         title: 'test poll',
         description: 'something here',
-        variants: [
+        poll_variants: [
           { title: 'variant #1' },
           { title: 'variant #2', prioroty: 2 },
           { title: 'variant #3', prioroty: 10 }

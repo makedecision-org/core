@@ -9,7 +9,7 @@ module Web::Controllers::Polls
     expose :poll, :proposal
 
     def call(params)
-      @poll = Poll.new
+      @poll = Poll.new(variants: [])
 
       case result = operation.call(id: params[:proposal_id])
       when Success

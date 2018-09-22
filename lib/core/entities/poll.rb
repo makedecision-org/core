@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require_relative './proposal'
+require_relative './poll_variant'
+
+class PollVariant < Hanami::Entity
+end
 
 # Types:
 #
@@ -29,7 +33,8 @@ class Poll < Hanami::Entity
     attribute :type,      Types::String
     attribute :anonymous, Types::Bool
 
-    attribute :vote_data, Types::Collection(Types::Coercible::Hash)
+    attribute :vote_data, Types::Collection(Types::Coercible::Hash).default([])
+    attribute :poll_variants, Types::Collection(PollVariant).default([])
 
     attribute :created_at, Types::Time
     attribute :updated_at, Types::Time

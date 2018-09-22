@@ -8,11 +8,12 @@ module Web::Controllers::Polls
     include Import[operation: 'polls.operations.create']
 
     def call(params)
-      case result = operation.call(**params.to_h)
+      case result = operation.call(payload: params[:poll].to_h)
       when Success
-        redirect_to routes.organisation_proposal_path(result.value!.proposal_id)
+        redirect_to routes.organisation_proposal_path(params[:organisation_id], result.value!.proposal_id)
       when Failure
-        redirect_to routes.organisation_proposal_path(params[:proposal_id])
+        # TODO: redirect to new poll page
+        redirect_to routes.organisation_proposal_path(params[:organisation_id], params[:proposal_id])
       end
     end
   end
