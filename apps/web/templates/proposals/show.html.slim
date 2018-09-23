@@ -50,21 +50,16 @@
       = link_to 'Suggest poll', routes.new_organisation_proposal_poll_path(params[:organisation_id], proposal.id), class: 'btn btn-outline-secondary'
 
     - proposal.polls.each do |poll|
-      div = poll.title
+      h3 = poll.title
 
-    h3 What framework we should choose?
+      form action="#" method="POST"
+        - poll.poll_variants.each do |poll_variant|
+          .form-check
+            input.form-check-input type="checkbox" value="" id="check#{poll_variant.id}"
+            label.form-check-label for="hanamiCheck" = poll_variant.title
 
-    form action="#" method="POST"
-      .form-check
-        input.form-check-input type="checkbox" value="" id="hanamiCheck"
-        label.form-check-label for="hanamiCheck" Hanami
-
-      .form-check
-        input.form-check-input type="checkbox" value="" id="defaultCheck1"
-        label.form-check-label for="defaultCheck1" Sinatra
-
-      br
-      input type="submit" value="Vote" name="vote" class="btn btn-success"
+        br
+        input type="submit" value="Vote" name="vote" class="btn btn-success"
 
   hr
 
