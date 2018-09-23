@@ -14,7 +14,7 @@ module Polls
         required(:proposal_id, Types::Int).filled
         required(:type, Types::PollTypes).filled(included_in?: Poll::TYPES)
         required(:title, Types::String).filled
-        optional(:description, Types::String).filled
+        optional(:description, Types::String).maybe
 
         required(:poll_variants).each do
           schema do
