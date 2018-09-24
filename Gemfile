@@ -33,6 +33,11 @@ gem 'kramdown', '1.13.1'
 gem 'rinku'
 gem 'rouge', '1.11.1'
 
+# auth
+gem 'omniauth'
+gem 'omniauth-github', github: 'intridea/omniauth-github'
+gem 'web_bouncer', github: 'davydovanton/web_bouncer'
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
