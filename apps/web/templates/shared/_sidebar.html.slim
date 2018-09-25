@@ -1,7 +1,8 @@
 nav#sidebar
   .sidebar-header
-    h3 User Name
-    strong UserIco
+    h3 = current_account.name
+    strong
+      img.sidebar-header__avatar src=current_account.avatar_url
   ul.list-unstyled.components
     = sidebar_actions
     li

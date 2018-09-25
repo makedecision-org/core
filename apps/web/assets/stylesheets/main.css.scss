@@ -304,6 +304,12 @@ i, span {
       display: none;
       font-size: 1.8em;
     }
+
+    .sidebar-header__avatar {
+      width: 55px;
+      border-radius: 40px;
+      margin: 0px 0px 0 -7px;
+    }
   }
 
   ul {
