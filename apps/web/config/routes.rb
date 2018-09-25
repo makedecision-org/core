@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 root to: 'home#index'
+get '/about', to: 'home#about'
 
 get '/dashboard', to: 'organisations#index', as: :dashboard
 
