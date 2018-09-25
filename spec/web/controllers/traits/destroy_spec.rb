@@ -2,9 +2,17 @@
 
 RSpec.describe Web::Controllers::Traits::Destroy, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { organisation_id: 'test', variant_id: 1, value: 'new trait', trait_type: 'positive' } }
+  let(:params) { { 'rack.session' => session, organisation_id: 'test', variant_id: 1, value: 'new trait', trait_type: 'positive' } }
+  let(:session) { { account: Account.new(id: 1) } }
 
   subject { action.call(params) }
+
+  context 'when account not login' do
+    let(:operation) { ->(*) {} }
+    let(:session) { {} }
+
+    it { expect(action.call(params)).to redirect_to('/') }
+  end
 
   context 'when operation returns success result' do
     let(:operation) { ->(variant_id:, trait_type:, value:) { Success(Variant.new(proposal_id: 1)) } }
@@ -16,7 +24,7 @@ RSpec.describe Web::Controllers::Traits::Destroy, type: :action do
     let(:action) { described_class.new }
     let(:proposal) { Fabricate.create(:proposal) }
     let(:params) do
-      { organisation_id: 'test', variant_id: variant.id, trait_type: 'positive', value: 'posititve trait' }
+      { 'rack.session' => session, organisation_id: 'test', variant_id: variant.id, trait_type: 'positive', value: 'posititve trait' }
     end
     let(:variant) do
       VariantRepository.new.create(

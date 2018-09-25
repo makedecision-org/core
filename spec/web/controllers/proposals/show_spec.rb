@@ -2,9 +2,17 @@
 
 RSpec.describe Web::Controllers::Proposals::Show, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { organisation_id: 'test', id: 1 } }
+  let(:params) { { 'rack.session' => session, organisation_id: 'test', id: 1 } }
+  let(:session) { { account: Account.new(id: 1) } }
 
   subject { action.call(params) }
+
+  context 'when account not login' do
+    let(:operation) { ->(*) {} }
+    let(:session) { {} }
+
+    it { expect(action.call(params)).to redirect_to('/') }
+  end
 
   context 'when operation returns success result' do
     let(:operation) { ->(id:) { Success(Proposal.new(id: id)) } }

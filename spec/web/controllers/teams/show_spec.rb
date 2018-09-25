@@ -2,9 +2,18 @@
 
 RSpec.describe Web::Controllers::Teams::Show, type: :action do
   let(:action) { described_class.new(operation: operation, proposals_list_operation: proposals_list_operation) }
-  let(:params) { { organisation_id: 'test', id: 1 } }
+  let(:proposals_list_operation) { ->(*) {} }
+  let(:params) { { 'rack.session' => session, organisation_id: 'test', id: 1 } }
+  let(:session) { { account: Account.new(id: 1) } }
 
   subject { action.call(params) }
+
+  context 'when account not login' do
+    let(:operation) { ->(*) {} }
+    let(:session) { {} }
+
+    it { expect(action.call(params)).to redirect_to('/') }
+  end
 
   context 'when operation returns success result' do
     let(:operation) { ->(org_slug:, id:) { Success(Team.new) } }

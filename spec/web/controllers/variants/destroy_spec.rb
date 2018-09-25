@@ -2,9 +2,17 @@
 
 RSpec.describe Web::Controllers::Variants::Destroy, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { organisation_id: 'test', id: 1 } }
+  let(:params) { { 'rack.session' => session, organisation_id: 'test', proposal_id: 1, name: 'test variant', body: '' } }
+  let(:session) { { account: Account.new(id: 1) } }
 
   subject { action.call(params) }
+
+  context 'when account not login' do
+    let(:operation) { ->(*) {} }
+    let(:session) { {} }
+
+    it { expect(action.call(params)).to redirect_to('/') }
+  end
 
   context 'when operation returns success result' do
     let(:operation) { ->(id:) { Success(Variant.new(proposal_id: 1)) } }
@@ -22,7 +30,7 @@ RSpec.describe Web::Controllers::Variants::Destroy, type: :action do
     let(:action) { described_class.new }
     let(:proposal) { Fabricate.create(:proposal) }
     let(:variant) { VariantRepository.new.create(name: 'variant #1', proposal_id: proposal.id) }
-    let(:params) { { organisation_id: 'test', id: variant.id } }
+    let(:params) { { 'rack.session' => session, organisation_id: 'test', id: variant.id } }
 
     it { expect(subject).to redirect_to("/organisations/test/proposals/#{proposal.id}") }
   end

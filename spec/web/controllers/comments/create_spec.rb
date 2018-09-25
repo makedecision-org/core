@@ -2,7 +2,8 @@
 
 RSpec.describe Web::Controllers::Comments::Create, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { organisation_id: 'test', proposal_id: 1, body: 'new comment' } }
+  let(:params) { { 'rack.session' => session, organisation_id: 'test', proposal_id: 1, body: 'new comment' } }
+  let(:session) { { account: Account.new(id: 1) } }
 
   subject { action.call(params) }
 
@@ -10,6 +11,13 @@ RSpec.describe Web::Controllers::Comments::Create, type: :action do
     let(:operation) { ->(proposal_id:, body:) { Success(Comment.new(proposal_id: 1)) } }
 
     it { expect(subject).to redirect_to('/organisations/test/proposals/1') }
+  end
+
+  context 'when account not login' do
+    let(:operation) { ->(*) {} }
+    let(:session) { {} }
+
+    it { expect(action.call(params)).to redirect_to('/') }
   end
 
   xcontext 'when operation returns failure result' do

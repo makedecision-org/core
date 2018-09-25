@@ -2,9 +2,17 @@
 
 RSpec.describe Web::Controllers::Proposals::Index, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { Hash[] }
+  let(:params) { { 'rack.session' => session } }
+  let(:session) { { account: Account.new(id: 1) } }
 
   subject { action.call(params) }
+
+  context 'when account not login' do
+    let(:operation) { ->(*) {} }
+    let(:session) { {} }
+
+    it { expect(action.call(params)).to redirect_to('/') }
+  end
 
   context 'when operation returns success result' do
     let(:operation) { -> { Success([Proposal.new]) } }
