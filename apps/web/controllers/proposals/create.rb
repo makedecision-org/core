@@ -23,7 +23,8 @@ module Web::Controllers::Proposals
         proposal = Proposal.new(title: params[:title], body: params[:body])
 
         # TODO: fix it
-        self.body = Web::Views::Proposals::New.render(format: format, proposal: proposal, teams: [],
+        self.body = Web::Views::Proposals::New.render(format: format, proposal: proposal,
+                                                      teams: [], current_account: current_account,
                                                       errors: result.failure, params: params)
         # errors: result.failure, params: params, updated_csrf_token: set_csrf_token)
       end
