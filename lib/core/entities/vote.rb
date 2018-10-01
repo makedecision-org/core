@@ -13,6 +13,9 @@ class Vote < Hanami::Entity
     attribute :poll_id, Types::Int
     attribute :poll, Types::Entity(Poll)
 
+    attribute :account_id, Types::Int
+    # attribute :poll, Types::Entity(Account)
+
     attribute :reason,     Types::String
     attribute :raw_reason, Types::String
 
