@@ -26,12 +26,19 @@ RSpec.describe Web::Controllers::ProposalStatuses::Update, type: :action do
     it { expect(subject).to redirect_to('/organisations/test/proposals/1') }
   end
 
-  xcontext 'with real dependencies' do
+  context 'with real dependencies' do
     let(:action) { described_class.new }
     let(:proposal) { Fabricate.create(:proposal) }
-    let(:params) { { proposal_id: proposal.id, name: 'test variant' } }
+    let(:params) do
+      {
+        'rack.session' => session,
+        organisation_id: 'test',
+        id: proposal.id,
+        status: 'approved',
+        conclusions: 'closed'
+      }
+    end
 
-    it { expect { subject }.to change { VariantRepository.new.all.count }.by(1) }
-    it { expect(subject).to redirect_to("/proposals/#{proposal.id}") }
+    it { expect(subject).to redirect_to("/organisations/test/proposals/#{proposal.id}") }
   end
 end
