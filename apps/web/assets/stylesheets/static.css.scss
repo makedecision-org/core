@@ -7,15 +7,15 @@
   width: 100%;
   height: 80px;
   z-index: 990;
-  background-color: rgba(0,0,0,0.50);
+  background-color: #fff;
 
   .navbar-nav {
     margin: 0 auto;
   }
 
   .navbar__login {
-    color: #000000;
-    background-color: #ffffff;
+    color: #fff;
+    background-color: #2800ff;
     border-radius: 20px;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -27,10 +27,10 @@
   }
   
   a {
-    color: #fff;
+    color: #000;
 
     &:hover {
-      color: #ccc;
+      color: #333;
     }
   }
 }
