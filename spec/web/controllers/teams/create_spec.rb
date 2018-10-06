@@ -2,7 +2,13 @@
 
 RSpec.describe Web::Controllers::Teams::Create, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { 'rack.session' => session, organisation_id: 'test', team: { organisation_id: 1, body: 'test', title: 'frontend' } } }
+  let(:params) do
+    {
+      'rack.session' => session,
+      organisation_id: 'test',
+      team: { organisation_id: 1, body: 'test', title: 'frontend' }
+    }
+  end
   let(:session) { { account: Account.new(id: 1) } }
 
   subject { action.call(params) }
@@ -38,7 +44,13 @@ RSpec.describe Web::Controllers::Teams::Create, type: :action do
   context 'whith a real dependency' do
     let(:action) { described_class.new }
     let(:organisation) { Fabricate.create(:organisation, slug: 'test') }
-    let(:params) { { 'rack.session' => session, organisation_id: organisation.slug, team: { organisation_id: organisation.id, title: 'test', body: 'test' } } }
+    let(:params) do
+      {
+        'rack.session' => session,
+        organisation_id: organisation.slug,
+        team: { organisation_id: organisation.id, title: 'test', body: 'test' }
+      }
+    end
 
     it { expect(subject).to be_success 200 }
     it { expect { subject }.to change { TeamRepository.new.all.count }.by(1) }

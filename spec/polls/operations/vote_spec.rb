@@ -38,7 +38,7 @@ RSpec.describe Polls::Operations::Vote, type: :operation do
         { poll_id: 123, reason: 'test', variant_ids: [21, 32, 43] },
         { account_id: 1, poll_id: 123, reason: 'test', variant_ids: [] },
         { account_id: 1, poll_id: 123, variant_ids: [21, 32, 43] },
-        { account_id: 1, reason: 'test', variant_ids: [21, 32, 43] },
+        { account_id: 1, reason: 'test', variant_ids: [21, 32, 43] }
       ].each { |payload| expect(operation.call(payload)).to be_failure }
     end
   end

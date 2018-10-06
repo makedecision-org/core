@@ -26,7 +26,7 @@ module Polls
         Success(vote)
       end
 
-    private
+      private
 
       def persist_vote(payload)
         raw_reason = payload[:reason]
