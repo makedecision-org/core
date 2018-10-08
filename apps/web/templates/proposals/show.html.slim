@@ -11,7 +11,8 @@
 
   .proposal__body = proposal_body
 
-  hr
+.proposal
+  h2 Variants
 
   .variants
     - if proposal.open?
@@ -41,14 +42,12 @@
               - variant.negative_traits.each do |trait|
                 li = delete_negative_trait_form(proposal, variant, trait[:value], org_id: params[:organisation_id])
 
-  hr
+.proposal
+  h2 Decisions
+  - if proposal.open?
+    = link_to 'Suggest poll', routes.new_organisation_proposal_poll_path(params[:organisation_id], proposal.id), class: 'btn btn-outline-secondary'
 
   .decisions
-    h2 Decisions
-
-    - if proposal.open?
-      = link_to 'Suggest poll', routes.new_organisation_proposal_poll_path(params[:organisation_id], proposal.id), class: 'btn btn-outline-secondary'
-
     - proposal.polls.each do |poll|
       h3 = poll.title
 
@@ -57,14 +56,12 @@
       - else
         = poll_form(poll)
 
-  hr
-
-  - if proposal.open?
+- if proposal.open?
+  .proposal
     .proposal__actions
       = update_proposal_status_form(org_id: params[:organisation_id])
 
-    hr
-
+.proposal
   .thread
     h2 Thread
 
