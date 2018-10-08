@@ -27,7 +27,6 @@ module Polls
       end
 
       def call(payload:)
-        payload[:author_id] = 1
         payload = yield VALIDATOR.call(payload).to_either
         # TODO: md text parsing
         poll = yield create_poll(payload)

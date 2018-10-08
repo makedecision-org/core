@@ -13,6 +13,7 @@ RSpec.describe Polls::Operations::Create, type: :operation do
   context 'when poll payload is valid' do
     let(:payload) do
       {
+        author_id: 1,
         proposal_id: 11,
         title: 'test poll',
         description: 'something here',
@@ -62,9 +63,11 @@ RSpec.describe Polls::Operations::Create, type: :operation do
   context 'whith real dependencies' do
     let(:operation) { described_class.new }
 
+    let(:account) { Fabricate.create(:account) }
     let(:proposal) { Fabricate.create(:proposal) }
     let(:payload) do
       {
+        author_id: account.id,
         proposal_id: proposal.id,
         type: 'check',
         title: 'test poll',
