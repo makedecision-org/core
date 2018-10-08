@@ -14,11 +14,14 @@ module Polls
       VALIDATOR = Dry::Validation.JSON do
         required(:account_id, Types::Int).filled
         required(:poll_id, Types::Int).filled
-        required(:reason, Types::String).filled
-        required(:variant_ids, Types::Array.of(Types::Int)).filled
+        required(:reason, Types::String).maybe
+        required(:variant_ids, Types::Coercible::Array.of(Types::Coercible::Int)).filled
       end
 
       def call(payload)
+        # TODO: use types for typecasting
+        payload[:variant_ids] = payload[:variant_ids].map(&:to_i)
+
         payload = yield VALIDATOR.call(payload).to_either
         vote = yield persist_vote(payload)
 

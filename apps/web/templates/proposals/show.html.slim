@@ -52,14 +52,16 @@
     - proposal.polls.each do |poll|
       h3 = poll.title
 
-      form action="#" method="POST"
-        - poll.poll_variants.each do |poll_variant|
-          .form-check
-            input.form-check-input type="checkbox" value="" id="check#{poll_variant.id}"
-            label.form-check-label for="hanamiCheck" = poll_variant.title
+      = poll_form(poll)
 
-        br
-        input type="submit" value="Vote" name="vote" class="btn btn-success"
+      /form action="#" method="POST"
+      /  - poll.poll_variants.each do |poll_variant|
+      /    .form-check
+      /      input.form-check-input type="checkbox" value="" id="check#{poll_variant.id}"
+      /      label.form-check-label for="hanamiCheck" = poll_variant.title
+      /
+      /  br
+      /  input type="submit" value="Vote" name="vote" class="btn btn-success"
 
   hr
 

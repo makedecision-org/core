@@ -106,6 +106,28 @@ module Web::Views::Proposals
       end
     end
 
+    def poll_form(poll)
+      path_params = {
+        organisation_id: params[:organisation_id], proposal_id: params[:id]
+      }
+      form_for :poll, routes.votes_path(**path_params), method: :post do
+        input(name: 'poll_id', type: 'hidden', value: poll.id)
+
+        poll.poll_variants.each do |poll_variant|
+          div(class: 'form-check') do
+            check_box :variant_ids, name: 'variant_ids[]', value: poll_variant.id, id: nil, class: 'form-check-input'
+            label poll_variant.title, class: 'form-check-label'
+          end
+        end
+        br
+
+        textarea(name: 'reason', placeholder: 'Reason', class: 'form-control')
+
+        br
+        submit 'Vote', class: 'btn btn-success'
+      end
+    end
+
     private
 
     def raw_body(body)
