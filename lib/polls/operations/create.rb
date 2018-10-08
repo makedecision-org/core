@@ -12,8 +12,10 @@ module Polls
 
       VALIDATOR = Dry::Validation.JSON do
         required(:proposal_id, Types::Int).filled
+        required(:author_id, Types::Int).filled
         required(:type, Types::PollTypes).filled(included_in?: Poll::TYPES)
         required(:title, Types::String).filled
+        optional(:description, Types::String).maybe
         optional(:description, Types::String).maybe
 
         required(:poll_variants).each do
@@ -25,6 +27,7 @@ module Polls
       end
 
       def call(payload:)
+        payload[:author_id] = 1
         payload = yield VALIDATOR.call(payload).to_either
         # TODO: md text parsing
         poll = yield create_poll(payload)
@@ -35,9 +38,9 @@ module Polls
 
       private
 
-      def create_poll(proposal_id:, type:, title:, description: nil, **_payload)
+      def create_poll(proposal_id:, author_id:, type:, title:, description: nil, **_payload)
         Success(poll_repo.create(
-                  proposal_id: proposal_id, type: type, title: title, description: description
+                  author_id: author_id, proposal_id: proposal_id, type: type, title: title, description: description
                 ))
       end
 

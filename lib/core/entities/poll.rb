@@ -26,6 +26,8 @@ class Poll < Hanami::Entity
     attribute :proposal_id, Types::Int
     attribute :proposal,    Types::Entity(Proposal)
 
+    attribute :author_id, Types::Int
+
     attribute :title,           Types::String
     attribute :description,     Types::String
     attribute :raw_description, Types::String

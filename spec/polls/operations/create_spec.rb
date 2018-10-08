@@ -29,7 +29,7 @@ RSpec.describe Polls::Operations::Create, type: :operation do
 
     it 'persist poll data' do
       expect(poll_repo).to receive(:create).with(
-        proposal_id: 11, type: 'check', title: 'test poll', description: 'something here'
+        author_id: 1, proposal_id: 11, type: 'check', title: 'test poll', description: 'something here'
       ).and_return(Poll.new(id: 1))
 
       expect(subject).to be_success

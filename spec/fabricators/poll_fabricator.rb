@@ -6,6 +6,8 @@ Fabricator(:poll) do
   raw_description 'because I can'
   type 'choice'
 
+  author_id { Fabricate.create(:account).id }
+
   proposal_id { Fabricate.create(:proposal).id }
   organisation_id { Fabricate.create(:organisation).id }
 end
