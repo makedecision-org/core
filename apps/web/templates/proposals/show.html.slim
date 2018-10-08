@@ -52,16 +52,10 @@
     - proposal.polls.each do |poll|
       h3 = poll.title
 
-      = poll_form(poll)
-
-      /form action="#" method="POST"
-      /  - poll.poll_variants.each do |poll_variant|
-      /    .form-check
-      /      input.form-check-input type="checkbox" value="" id="check#{poll_variant.id}"
-      /      label.form-check-label for="hanamiCheck" = poll_variant.title
-      /
-      /  br
-      /  input type="submit" value="Vote" name="vote" class="btn btn-success"
+      - if poll.author_id == current_account.id
+        div statistic will be here
+      - else
+        = poll_form(poll)
 
   hr
 
