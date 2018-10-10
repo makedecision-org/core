@@ -5,6 +5,8 @@ get '/about', to: 'home#about'
 
 get '/dashboard', to: 'organisations#index', as: :dashboard
 
+resources :organisations, only: %i[new create]
+
 resources :organisations, only: %i[show] do
   resources :teams, only: %i[new create show], controller: 'teams'
   resources :proposals, only: %i[new create show], controller: 'proposals' do
