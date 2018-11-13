@@ -9,13 +9,8 @@ module Web::Controllers::Polls
 
     def call(params)
       payload = { author_id: current_account.id }.merge!(params[:poll].to_h)
-      case result = operation.call(payload: payload)
-      when Success
-        redirect_to routes.organisation_proposal_path(params[:organisation_id], result.value!.proposal_id)
-      when Failure
-        # TODO: redirect to new poll page
-        redirect_to routes.organisation_proposal_path(params[:organisation_id], params[:proposal_id])
-      end
+      operation.call(payload: payload)
+      redirect_to routes.organisation_proposal_path(params[:organisation_id], params[:proposal_id])
     end
   end
 end
