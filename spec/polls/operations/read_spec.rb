@@ -27,7 +27,7 @@ RSpec.describe Polls::Operations::Read, type: :operation do
 
     let(:poll) { Fabricate.create(:poll) }
     let(:id) { poll.id }
-    
+
     it { expect(subject).to be_success }
   end
 end
