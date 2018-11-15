@@ -2,7 +2,9 @@
 
 RSpec.describe Web::Controllers::Variants::Destroy, type: :action do
   let(:action) { described_class.new(operation: operation) }
-  let(:params) { { 'rack.session' => session, organisation_id: 'test', proposal_id: 1, name: 'test variant', body: '' } }
+  let(:params) do
+    { 'rack.session' => session, organisation_id: 'test', proposal_id: 1, name: 'test variant', body: '' }
+  end
   let(:session) { { account: Account.new(id: 1) } }
 
   subject { action.call(params) }
