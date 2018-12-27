@@ -19,7 +19,7 @@ gem 'dry-system', '~> 0.9.0'
 gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
 
 # business logic section
-gem 'dry-monads', '~> 1.0.0'
+gem 'dry-monads', '~> 1.1.0'
 
 # templates
 gem 'hanami-bootstrap'
