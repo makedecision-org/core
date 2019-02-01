@@ -26,20 +26,20 @@ module Auth
 
       def oauth_data(data)
         {
-          uid:   data['uid'],
+          uid: data['uid'],
           token: data['credentials']['token'],
-          type:  'github'
+          type: 'github'
         }
       end
 
       def account_data(data)
         {
-          uuid:       SecureRandom.uuid,
-          login:      data['info']['nickname'],
-          email:      data['info']['email'],
-          name:       data['info']['name'],
-          bio:        data['extra']['raw_info']['bio'],
-          role:       'user',
+          uuid: SecureRandom.uuid,
+          login: data['info']['nickname'],
+          email: data['info']['email'],
+          name: data['info']['name'],
+          bio: data['extra']['raw_info']['bio'],
+          role: 'user',
           avatar_url: data['info']['image']
         }
       end
