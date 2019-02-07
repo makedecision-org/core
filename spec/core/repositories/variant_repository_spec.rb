@@ -64,7 +64,13 @@ RSpec.describe VariantRepository, type: :repository do
     subject { repo.delete_positive_trait(variant.id, 'old positive trait') }
 
     context 'when variant contain positive traits' do
-      let(:variant) { repo.create(name: 'test', proposal_id: proposal.id, positive_traits: [{ value: 'new one' }, { value: 'old positive trait' }]) }
+      let(:variant) do
+        repo.create(
+          name: 'test',
+          proposal_id: proposal.id,
+          positive_traits: [{ value: 'new one' }, { value: 'old positive trait' }]
+        )
+      end
 
       it 'adds one more trait to the variant' do
         subject
@@ -101,7 +107,13 @@ RSpec.describe VariantRepository, type: :repository do
     subject { repo.delete_negative_trait(variant.id, 'old positive trait') }
 
     context 'when variant contain negative trait' do
-      let(:variant) { repo.create(name: 'test', proposal_id: proposal.id, negative_traits: [{ value: 'new one' }, { value: 'old positive trait' }]) }
+      let(:variant) do
+        repo.create(
+          name: 'test',
+          proposal_id: proposal.id,
+          negative_traits: [{ value: 'new one' }, { value: 'old positive trait' }]
+        )
+      end
 
       it 'adds one more trait to the variant' do
         subject
